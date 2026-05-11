@@ -488,7 +488,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 .insta-handle { font-family: var(--serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; margin-top: 8px; }
 .insta-handle a { text-decoration: none; }
 .insta-handle a:hover { color: var(--accent); }
-.insta-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.insta-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .insta-tile {
   aspect-ratio: 1/1; border-radius: var(--r-sm); overflow: hidden;
   position: relative; cursor: pointer; display: block;
@@ -551,7 +551,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   .location-map { min-height: 360px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  .insta-strip { grid-template-columns: repeat(3, 1fr); }
+  .insta-strip { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -641,8 +641,24 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   .socials { margin-top: 20px; }
   .location-cta { margin-top: 20px; }
 
-  /* INSTAGRAM */
-  .insta-strip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  /* INSTAGRAM — horizontal swipe */
+  .insta-strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    margin-left: calc(-1 * var(--pad));
+    margin-right: calc(-1 * var(--pad));
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+  .insta-strip::-webkit-scrollbar { display: none; }
+  .insta-tile {
+    flex: 0 0 72vw;
+    scroll-snap-align: start;
+  }
 
   /* FOOTER */
   .footer { padding: 48px 0 24px; }
@@ -898,7 +914,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <!-- Spanakopita -->
       <article class="menu-card">
         <div class="menu-card-photo">
-          <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=700&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1476224203421-74177e79edd4?w=700&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
         </div>
         <div class="menu-card-body">
           <div class="menu-card-head">
@@ -961,7 +977,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Interieur Aroma Lunchroom — raamzijde" loading="lazy" />
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pita gyros close-up" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&q=80&auto=format&fit=crop" alt="Pita gyros close-up" loading="lazy" />
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80&auto=format&fit=crop" alt="Koffie en bougatsa" loading="lazy" />
@@ -979,7 +995,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80&auto=format&fit=crop" alt="Vers brood en feta" loading="lazy" />
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1502747983583-c9f88beea75d?w=700&q=80&auto=format&fit=crop" alt="Servies detail" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1484723091739-30f299b01f58?w=700&q=80&auto=format&fit=crop" alt="Servies detail" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1136,27 +1152,19 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     </div>
     <div class="insta-strip">
       <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80&auto=format&fit=crop" alt="Gyros van boven" loading="lazy" />
-        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
-      </a>
-      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1502747983583-c9f88beea75d?w=600&q=80&auto=format&fit=crop" alt="Koffie en dessert" loading="lazy" />
-        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
-      </a>
-      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
         <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Vers fruit ontbijt" loading="lazy" />
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
       <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80&auto=format&fit=crop" alt="Vitrine bougatsa" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80&auto=format&fit=crop" alt="Bougatsa uit de vitrine" loading="lazy" />
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
       <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c34c?w=600&q=80&auto=format&fit=crop" alt="Terras zonnig" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&auto=format&fit=crop" alt="Koffie en gebak" loading="lazy" />
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
       <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=600&q=80&auto=format&fit=crop" alt="Team in de keuken" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c34c?w=600&q=80&auto=format&fit=crop" alt="Terras op een zonnige dag" loading="lazy" />
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
     </div>
