@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aroma Lunchroom — Hartje Gorcum</title>
+<meta name="description" content="Aroma Lunchroom — Grieks ontbijt, lunch, koffie en zelfgemaakte desserts in Gorinchem. Arkelstraat 33, Ma–Za 08:00–17:00. ★ 5,0 op Google." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- TOKENS ---------- */
+:root {
+  --bg: #f6efe1;
+  --bg-2: #ece0c5;
+  --ink: #1c1a14;
+  --ink-2: #4a4636;
+  --ink-3: #7a7460;
+  --line: #d9cdb2;
+  --brand: #2d4a2b;
+  --brand-ink: #f6efe1;
+  --accent: #c97b5c;
+  --accent-ink: #fff;
+  --warm: #e8dcc4;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 32px;
+  --maxw: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+/* ---------- RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+p { margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(48px, 8vw, 116px); line-height: 0.98; font-weight: 400; }
+h2 { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.02; }
+h3 { font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+/* ---------- EYEBROW ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px; height: 1px;
+  background: var(--ink-3);
+  display: inline-block;
+}
+.eyebrow.center::before { display: none; }
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--brand); color: var(--brand-ink); }
+.btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: currentColor; }
+.btn-ghost.on-dark { color: #fff; }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+.btn-ghost.on-dark:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px var(--pad);
+  transition: background .25s ease, backdrop-filter .25s ease, padding .25s ease, border-color .25s ease, color .25s ease;
+  border-bottom: 1px solid transparent;
+  color: #fff;
+}
+.nav.scrolled {
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-color: var(--line);
+  color: var(--ink);
+  padding: 12px var(--pad);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: inherit;
+}
+.nav-brand-mark {
+  width: 40px; height: 40px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0;
+  background: var(--brand);
+  display: grid; place-items: center;
+  border: 1px solid color-mix(in oklab, var(--brand) 70%, #000);
+}
+.nav-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.nav-brand-text { display: flex; flex-direction: column; line-height: 1; }
+.nav-brand-name { font-family: var(--serif); font-size: 20px; font-weight: 500; letter-spacing: 0.01em; }
+.nav-brand-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; opacity: 0.7; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  text-decoration: none; font-weight: 500; font-size: 14px;
+  position: relative; padding: 6px 0;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .2s ease;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { display: flex; align-items: center; gap: 10px; }
+.nav-hamburger {
+  display: none;
+  width: 40px; height: 40px;
+  border: 1px solid currentColor; background: transparent;
+  border-radius: 50%;
+  align-items: center; justify-content: center;
+  color: inherit;
+}
+.nav-hamburger-icon { display: block; width: 16px; height: 1.5px; background: currentColor; position: relative; }
+.nav-hamburger-icon::before, .nav-hamburger-icon::after {
+  content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: currentColor;
+}
+.nav-hamburger-icon::before { top: -5px; }
+.nav-hamburger-icon::after { top: 5px; }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 80;
+  background: var(--bg);
+  display: flex; flex-direction: column; padding: 24px var(--pad);
+  transform: translateY(-100%);
+  transition: transform .35s cubic-bezier(.6,.05,.3,1), visibility 0s linear .35s;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.6,.05,.3,1), visibility 0s linear 0s;
+}
+.mobile-menu-top { display: flex; align-items: center; justify-content: space-between; }
+.mobile-close {
+  width: 40px; height: 40px;
+  border: 1px solid var(--line); background: transparent;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--ink);
+  cursor: pointer;
+}
+.mobile-menu-links {
+  display: flex; flex-direction: column; gap: 4px;
+  margin-top: 48px; flex: 1;
+}
+.mobile-menu-links a {
+  font-family: var(--serif); font-size: 36px;
+  text-decoration: none; padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.mobile-menu-foot { padding-top: 24px; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  color: #fff;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-media {
+  position: absolute; inset: 0; z-index: -1;
+}
+.hero-media img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--ink) 50%, transparent) 0%, transparent 22%, transparent 55%, color-mix(in oklab, var(--ink) 75%, transparent) 100%),
+    radial-gradient(80% 60% at 50% 60%, transparent 0%, color-mix(in oklab, var(--ink) 30%, transparent) 100%);
+  z-index: 1;
+}
+.hero-full {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 0 var(--pad) 80px;
+}
+.hero-content { align-self: end; max-width: 1100px; padding-bottom: 24px; }
+.hero-tagline { display: block; margin-bottom: 20px; }
+.hero-full h1 { color: #fff; }
+.hero-full h1 .en {
+  display: block;
+  font-size: 0.42em;
+  color: rgba(255,255,255,0.65);
+  margin-top: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: rgba(255,255,255,0.88);
+  max-width: 540px;
+  margin-top: 24px;
+  line-height: 1.55;
+}
+.hero-cta-row { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-bottom {
+  display: flex; align-items: end; justify-content: space-between;
+  gap: 32px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+.hero-meta { display: flex; gap: 40px; flex-wrap: wrap; color: rgba(255,255,255,0.8); font-size: 13px; }
+.hero-meta-item .label {
+  font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.16em;
+  font-size: 10px; opacity: 0.7; display: block; margin-bottom: 4px;
+}
+.hero-meta-item .val { font-weight: 500; }
+.scroll-indicator {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+.scroll-indicator .line {
+  width: 1px; height: 40px; background: rgba(255,255,255,0.5);
+  position: relative; overflow: hidden;
+}
+.scroll-indicator .line::after {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: #fff;
+  animation: scroll-dot 1.8s ease-in-out infinite;
+}
+@keyframes scroll-dot {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* ---------- SECTIONS ---------- */
+section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
+.section-head {
+  display: flex; align-items: end; justify-content: space-between;
+  gap: 32px; margin-bottom: 56px; flex-wrap: wrap;
+}
+.section-head h2 { max-width: 720px; }
+.section-head .lead { color: var(--ink-2); max-width: 420px; font-size: 17px; }
+
+/* ---------- OVER ONS ---------- */
+.over { background: var(--bg); }
+.over-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.over-photo {
+  aspect-ratio: 4/5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.over-photo img { width: 100%; height: 100%; object-fit: cover; }
+.over-text { display: flex; flex-direction: column; gap: 24px; }
+.over-text h2 .en {
+  display: block; font-size: 0.45em; color: var(--ink-3);
+  font-style: italic; margin-top: 10px; font-weight: 400;
+}
+.over-text p { color: var(--ink-2); font-size: 17px; line-height: 1.7; }
+.over-signature {
+  font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--brand);
+  display: flex; align-items: center; gap: 12px;
+}
+.over-signature .name-label {
+  font-family: var(--mono); font-style: normal; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+}
+.hours {
+  margin-top: 12px; border-top: 1px solid var(--line); padding-top: 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;
+}
+.hours-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 4px 0; }
+.hours-item .day { font-weight: 600; font-size: 14px; }
+.hours-item .time { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.hours-item.closed .time { color: var(--ink-3); }
+.hours-item.today { color: var(--brand); }
+.hours-item.today .day::before { content: "●"; color: var(--accent); margin-right: 6px; font-size: 10px; vertical-align: middle; }
+
+/* ---------- MENU ---------- */
+.menu { background: var(--bg-2); padding: clamp(60px, 7vw, 96px) 0; }
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.menu-card {
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: var(--r-md); overflow: hidden; display: flex;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.menu-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -22px rgba(0,0,0,0.22); border-color: var(--accent); }
+.menu-card-photo { width: 110px; flex-shrink: 0; align-self: stretch; }
+.menu-card-photo img { width: 100%; height: 100%; object-fit: cover; }
+.menu-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.menu-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.menu-card-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.15; }
+.menu-card-title .en { display: block; font-size: 11px; color: var(--ink-3); font-style: italic; margin-top: 2px; font-weight: 400; }
+.menu-card-price { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--brand); white-space: nowrap; }
+.menu-card-desc { color: var(--ink-2); font-size: 12.5px; line-height: 1.45; }
+.menu-card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+.menu-tag {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 6px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-3);
+}
+.menu-tag.veg { color: var(--brand); border-color: color-mix(in oklab, var(--brand) 40%, transparent); }
+.menu-tag.hot { color: var(--accent); border-color: color-mix(in oklab, var(--accent) 50%, transparent); }
+.menu-footer { display: flex; justify-content: center; margin-top: 36px; }
+
+/* ---------- GALLERY ---------- */
+.gallery { background: var(--bg); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px; gap: 14px;
+}
+.gallery-item { border-radius: var(--r-md); overflow: hidden; position: relative; cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item.span-2c { grid-column: span 2; }
+.gallery-item.span-2r { grid-row: span 2; }
+
+/* ---------- REVIEWS ---------- */
+.reviews { background: var(--bg-2); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.review-card {
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 32px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.review-stars { display: flex; gap: 2px; color: var(--accent); font-size: 16px; letter-spacing: 2px; }
+.review-quote {
+  font-family: var(--serif); font-size: 19px; line-height: 1.5;
+  color: var(--ink); flex: 1; font-weight: 400;
+}
+.review-quote::before {
+  content: "\201C"; font-size: 56px; line-height: 0; vertical-align: -20px;
+  color: var(--accent); margin-right: 4px; font-family: var(--serif);
+}
+.review-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 16px; border-top: 1px solid var(--line);
+}
+.review-name { font-weight: 600; font-size: 14px; }
+.review-meta { font-size: 12px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.04em; }
+.reviews-footer {
+  text-align: center; margin-top: 40px;
+  color: var(--ink-3); font-size: 13px; font-family: var(--mono);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.reviews-footer strong { color: var(--ink); font-family: var(--sans); letter-spacing: 0; text-transform: none; font-size: 14px; }
+
+/* ---------- LOCATION ---------- */
+.location { background: var(--bg); }
+.location-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: clamp(40px, 5vw, 80px); align-items: stretch;
+}
+.location-map {
+  position: relative; border-radius: var(--r-lg); overflow: hidden;
+  min-height: 500px; background: var(--bg-2);
+}
+.map-streets {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0%, transparent 18%, color-mix(in oklab, var(--ink-3) 20%, transparent) 18%, color-mix(in oklab, var(--ink-3) 20%, transparent) 19%, transparent 19%),
+    linear-gradient(20deg, transparent 0%, transparent 38%, color-mix(in oklab, var(--ink-3) 20%, transparent) 38%, color-mix(in oklab, var(--ink-3) 20%, transparent) 39.2%, transparent 39.2%),
+    linear-gradient(70deg, transparent 0%, transparent 60%, color-mix(in oklab, var(--ink-3) 25%, transparent) 60%, color-mix(in oklab, var(--ink-3) 25%, transparent) 61.5%, transparent 61.5%),
+    linear-gradient(160deg, transparent 0%, transparent 28%, color-mix(in oklab, var(--ink-3) 15%, transparent) 28%, color-mix(in oklab, var(--ink-3) 15%, transparent) 29%, transparent 29%),
+    color-mix(in oklab, var(--bg) 70%, var(--warm) 30%);
+}
+.map-river {
+  position: absolute; inset: 0;
+  background: linear-gradient(80deg, transparent 0%, transparent 78%, color-mix(in oklab, var(--brand) 28%, transparent) 78%, color-mix(in oklab, var(--brand) 28%, transparent) 88%, transparent 88%);
+  opacity: 0.6;
+}
+.map-pin {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%);
+  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.map-pin-label {
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: 8px 12px; font-size: 13px; font-weight: 600;
+  white-space: nowrap; box-shadow: 0 6px 24px -10px rgba(0,0,0,0.2);
+  font-family: var(--serif);
+}
+.map-pin-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2); position: relative;
+}
+.map-pin-dot::after {
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: color-mix(in oklab, var(--accent) 50%, transparent);
+  animation: pulse 2s ease-out infinite; z-index: -1;
+}
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+.map-overlay-label {
+  position: absolute; bottom: 16px; right: 16px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  background: var(--bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--line);
+  color: var(--ink-3);
+}
+.location-info { display: flex; flex-direction: column; }
+.location-info h2 { margin-bottom: 24px; }
+.contact-list { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+.contact-row {
+  display: grid; grid-template-columns: 110px 1fr;
+  padding: 18px 0; border-top: 1px solid var(--line); align-items: center; gap: 16px;
+}
+.contact-row:last-child { border-bottom: 1px solid var(--line); }
+.contact-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.contact-val { font-size: 15px; }
+.contact-val a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.contact-val a:hover { color: var(--accent); border-color: var(--accent); }
+.contact-val.hours-mini { font-family: var(--mono); font-size: 13px; line-height: 1.8; }
+.open-dot { color: #2e7d32; font-weight: 600; }
+.open-dot::before { content: "●"; color: #4caf50; margin-right: 6px; }
+.socials { display: flex; gap: 10px; margin-top: 28px; }
+.social-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  text-decoration: none; color: var(--ink);
+  transition: all .2s ease;
+}
+.social-btn:hover { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.location-cta { margin-top: 32px; }
+
+/* ---------- INSTAGRAM ---------- */
+.insta { background: var(--bg-2); padding: clamp(60px, 8vw, 100px) 0; }
+.insta-head { text-align: center; margin-bottom: 48px; }
+.insta-handle { font-family: var(--serif); font-size: clamp(28px, 3vw, 40px); font-weight: 500; margin-top: 8px; }
+.insta-handle a { text-decoration: none; }
+.insta-handle a:hover { color: var(--accent); }
+.insta-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.insta-tile {
+  aspect-ratio: 1/1; border-radius: var(--r-sm); overflow: hidden;
+  position: relative; cursor: pointer; display: block;
+}
+.insta-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.insta-tile:hover img { transform: scale(1.08); }
+.insta-tile::after {
+  content: ""; position: absolute; inset: 0;
+  background: color-mix(in oklab, var(--ink) 50%, transparent);
+  opacity: 0; transition: opacity .2s ease;
+}
+.insta-tile:hover::after { opacity: 1; }
+.insta-tile-icon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 1; color: #fff; opacity: 0; transition: opacity .2s ease;
+}
+.insta-tile:hover .insta-tile-icon { opacity: 1; }
+
+/* ---------- FOOTER ---------- */
+.footer { background: var(--brand); color: var(--brand-ink); padding: 80px 0 32px; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 60px;
+}
+.footer-brand { display: flex; flex-direction: column; gap: 18px; max-width: 360px; }
+.footer-brand-mark {
+  width: 56px; height: 56px; border-radius: 50%;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--brand-ink) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--brand-ink) 30%, transparent);
+  display: grid; place-items: center;
+}
+.footer-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.footer-tagline { font-family: var(--serif); font-size: 22px; line-height: 1.3; opacity: 0.92; }
+.footer-tagline .en { display: block; font-style: italic; font-size: 14px; opacity: 0.65; margin-top: 6px; }
+.footer-col h4 {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: color-mix(in oklab, var(--brand-ink) 70%, transparent);
+  font-weight: 500; margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.footer-col li { font-size: 14px; opacity: 0.85; }
+.footer-col a { text-decoration: none; font-size: 14px; opacity: 0.85; }
+.footer-col a:hover { opacity: 1; color: var(--accent); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px; padding-top: 32px;
+  border-top: 1px solid color-mix(in oklab, var(--brand-ink) 18%, transparent);
+  font-size: 12px; color: color-mix(in oklab, var(--brand-ink) 70%, transparent);
+}
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { text-decoration: none; }
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+  .location-grid { grid-template-columns: 1fr; }
+  .location-map { min-height: 360px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .insta-strip { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .nav-links, .nav-cta .btn:not(.always-show) { display: none; }
+  .nav-hamburger { display: inline-flex; }
+  .over-grid { grid-template-columns: 1fr; gap: 40px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+  .gallery-item.span-2c { grid-column: span 1; }
+  .gallery-item.span-2r { grid-row: span 1; }
+  .insta-strip { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hours { grid-template-columns: 1fr; }
+  .contact-row { grid-template-columns: 1fr; gap: 4px; }
+  .section-head { margin-bottom: 36px; }
+  h1 { font-size: clamp(40px, 12vw, 64px); }
+  .hero-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-meta { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-brand">
+    <span class="nav-brand-mark">
+      <img src="project/assets/logo.png" alt="Aroma" />
+    </span>
+    <span class="nav-brand-text">
+      <span class="nav-brand-name">Aroma</span>
+      <span class="nav-brand-sub">Lunchroom · Gorcum</span>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="#over">Over</a>
+    <a href="#menu">Menu</a>
+    <a href="#sfeer">Sfeer</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#locatie">Locatie</a>
+  </nav>
+  <div class="nav-cta">
+    <a href="#menu" class="btn btn-ghost">Bekijk menu</a>
+    <a href="#locatie" class="btn btn-primary always-show">Reserveren</a>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+      <span class="nav-hamburger-icon"></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-top">
+    <a href="#top" class="nav-brand" onclick="closeMobileMenu()">
+      <span class="nav-brand-mark">
+        <img src="project/assets/logo.png" alt="Aroma" />
+      </span>
+      <span class="nav-brand-text">
+        <span class="nav-brand-name">Aroma</span>
+        <span class="nav-brand-sub">Lunchroom · Gorcum</span>
+      </span>
+    </a>
+    <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="#over" onclick="closeMobileMenu()">Over</a>
+    <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+    <a href="#sfeer" onclick="closeMobileMenu()">Sfeer</a>
+    <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+    <a href="#locatie" onclick="closeMobileMenu()">Locatie</a>
+  </div>
+  <div class="mobile-menu-foot">
+    <a href="tel:+31000000000" class="btn btn-primary" style="width:100%;justify-content:center">Reserveer een tafel</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero hero-full" id="top">
+  <div class="hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1800&q=80&auto=format&fit=crop"
+      alt="Aroma Lunchroom interieur — warme houten tafels en ochtendlicht"
+      loading="eager"
+    />
+  </div>
+  <div class="hero-content">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.85)">
+      Sinds november 2025 · Arkelstraat 33
+    </span>
+    <h1 style="margin-top:20px">
+      De geur van<br>Griekenland in<br>Hartje Gorcum.
+      <span class="en">A taste of Greece — breakfast, lunch &amp; coffee.</span>
+    </h1>
+    <p class="hero-sub">
+      Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
+      Welkom in onze warme, lichte plek aan de Arkelstraat.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#locatie" class="btn btn-primary">Reserveer een tafel →</a>
+      <a href="#menu" class="btn btn-ghost on-dark">Bekijk het menu</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Geopend</span>
+        <span class="val">Ma–Za · 08:00 — 17:00</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Adres</span>
+        <span class="val">Arkelstraat 33, Gorinchem</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Reviews</span>
+        <span class="val">★ 5,0 · 33 Google reviews</span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </div>
+</section>
+
+<!-- OVER ONS -->
+<section class="over" id="over">
+  <div class="wrap">
+    <div class="over-grid">
+      <div class="over-photo">
+        <img
+          src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=900&q=80&auto=format&fit=crop"
+          alt="Chrysa achter de toonbank van Aroma Lunchroom"
+          loading="lazy"
+        />
+      </div>
+      <div class="over-text">
+        <span class="eyebrow">Over Aroma</span>
+        <h2>
+          Een stukje Griekenland, gemaakt met liefde.
+          <span class="en">A little piece of Greece, made with love.</span>
+        </h2>
+        <p>
+          Aroma opende in november 2025 zijn deuren in de Arkelstraat. Eigenaar Chrysa
+          brengt de smaken van haar Griekse keuken naar Gorinchem: authentieke yoghurt
+          met granola en vers fruit, knapperige bougatsa, gyros pita en handgemaakte
+          loukoumades. Alles zoals oma het maakte — geduldig, eerlijk en met veel olijfolie.
+        </p>
+        <p>
+          We zijn een lichte, ongedwongen plek voor je ochtendkoffie, een rustige lunch
+          of zomaar even langs. Kinderen zijn welkom, en je hond mag mee naar binnen.
+        </p>
+        <div class="over-signature">
+          <span>— Chrysa</span>
+          <span class="name-label">Eigenaar · Founder</span>
+        </div>
+        <div class="hours" id="hours-grid">
+          <!-- Filled by JS to highlight today -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU HIGHLIGHTS -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Menu Highlights</span>
+        <h2 style="margin-top:14px">
+          Zes favorieten,<br>elke ochtend vers gemaakt.
+        </h2>
+      </div>
+      <p class="lead">
+        Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert —
+        Grieks zoals het hoort.
+      </p>
+    </div>
+    <div class="menu-grid">
+
+      <!-- Pita Gyros -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=700&q=80&auto=format&fit=crop" alt="Pita Gyros" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Pita Gyros
+              <span class="en">Pork gyros wrap</span>
+            </h3>
+            <span class="menu-card-price">€ 9,50</span>
+          </div>
+          <p class="menu-card-desc">Mals varkensvlees van de spies, tzatziki, tomaat, ui en frietjes in een warme pita.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag hot">Signature</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bougatsa -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=700&q=80&auto=format&fit=crop" alt="Bougatsa" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Bougatsa
+              <span class="en">Phyllo custard pastry</span>
+            </h3>
+            <span class="menu-card-price">€ 5,50</span>
+          </div>
+          <p class="menu-card-desc">Krokant filodeeg met romige vanille-custard, kaneel en poedersuiker. Vers gebakken.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag">Sweet</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Griekse Yoghurt Bowl -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=80&auto=format&fit=crop" alt="Griekse Yoghurt Bowl" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Griekse Yoghurt Bowl
+              <span class="en">Greek yoghurt bowl</span>
+            </h3>
+            <span class="menu-card-price">€ 7,50</span>
+          </div>
+          <p class="menu-card-desc">Authentieke Griekse yoghurt met huisgemaakte granola, banaan, blauwe bessen en honing.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag">Ontbijt</span>
+            <span class="menu-tag veg">Veg</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pita Gegrilde Groenten -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80&auto=format&fit=crop" alt="Pita Gegrilde Groenten" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Pita Gegrilde Groenten
+              <span class="en">Grilled vegetable pita</span>
+            </h3>
+            <span class="menu-card-price">€ 9,00</span>
+          </div>
+          <p class="menu-card-desc">Geroosterde courgette, aubergine, paprika met feta-spread en verse munt.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag veg">Veg</span>
+            <span class="menu-tag veg">Vegan opt.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Spanakopita -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=700&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Spanakopita
+              <span class="en">Spinach &amp; feta pie</span>
+            </h3>
+            <span class="menu-card-price">€ 6,50</span>
+          </div>
+          <p class="menu-card-desc">Hartige taart van filodeeg, jonge spinazie, feta en lente-ui — zoals oma het maakte.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag veg">Veg</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Loukoumades -->
+      <article class="menu-card">
+        <div class="menu-card-photo">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80&auto=format&fit=crop" alt="Loukoumades" loading="lazy" />
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-head">
+            <h3 class="menu-card-title">
+              Loukoumades
+              <span class="en">Greek honey doughnuts</span>
+            </h3>
+            <span class="menu-card-price">€ 5,00</span>
+          </div>
+          <p class="menu-card-desc">Warme honingbolletjes met kaneel en walnoot. Onze meest bestelde dessert.</p>
+          <div class="menu-card-tags">
+            <span class="menu-tag hot">Signature</span>
+            <span class="menu-tag">Sweet</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="menu-footer">
+      <a href="#" class="btn btn-primary">Bekijk volledig menu (PDF) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="sfeer">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Sfeer · Atmosphere</span>
+        <h2 style="margin-top:14px">Kom even kijken hoe het voelt.</h2>
+      </div>
+      <p class="lead">
+        Houten tafels, ochtendlicht en de geur van versgebakken bougatsa. Een plek waar
+        je gerust een uur blijft hangen.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item span-2c span-2r">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Interieur Aroma Lunchroom — raamzijde" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pita gyros close-up" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80&auto=format&fit=crop" alt="Koffie en bougatsa" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=700&q=80&auto=format&fit=crop" alt="Ontbijtbowl" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=700&q=80&auto=format&fit=crop" alt="Loukoumades stapel" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c34c?w=700&q=80&auto=format&fit=crop" alt="Terras en pui van Aroma" loading="lazy" />
+      </div>
+      <div class="gallery-item span-2c">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80&auto=format&fit=crop" alt="Vers brood en feta" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1502747983583-c9f88beea75d?w=700&q=80&auto=format&fit=crop" alt="Servies detail" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Wat gasten zeggen</span>
+        <h2 style="margin-top:14px">
+          ★ 5,0 op Google.<br>
+          <span style="color:var(--ink-3);font-size:0.6em">33 reviews — en groeiende.</span>
+        </h2>
+      </div>
+      <p class="lead">Echte reacties van gasten die langs zijn geweest. Kom je ook proeven?</p>
+    </div>
+    <div class="reviews-grid">
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 sterren">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-quote">Heerlijke lunch, heerlijke bougatsa en pita gyros. We komen al jaren in Griekenland en de bougatsa was van hoge kwaliteit. Vriendelijke bediening.</p>
+        <div class="review-foot">
+          <span class="review-name">Henk Boluijt</span>
+          <span class="review-meta">Google review · 3 maanden geleden</span>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 sterren">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-quote">Nieuwe plek in Gorinchem is echt een aanrader! Lekker eten voor weinig geld. Pita Gyros is echt een aanrader en voor vega/vegan is de Pita gegrilde groenten erg lekker.</p>
+        <div class="review-foot">
+          <span class="review-name">Rianneke</span>
+          <span class="review-meta">Google review · 4 maanden geleden</span>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 sterren">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-quote">Aroma lunchroom is zeker aan te raden :) Heel lekker Grieks eten aan een voordelige prijs met vriendelijke bediening.</p>
+        <div class="review-foot">
+          <span class="review-name">Lien Claes</span>
+          <span class="review-meta">Google review · 4 maanden geleden</span>
+        </div>
+      </article>
+
+    </div>
+    <div class="reviews-footer">
+      <strong>5,0 / 5</strong> op Google · gebaseerd op 33 reviews
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIE & CONTACT -->
+<section class="location" id="locatie">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Locatie &amp; Contact</span>
+        <h2 style="margin-top:14px">Plan je bezoek.</h2>
+      </div>
+      <p class="lead">
+        We zitten in de Arkelstraat — een steenworp van het centrum van Gorinchem.
+        Parkeren in de buurt, terras voor de deur.
+      </p>
+    </div>
+    <div class="location-grid">
+
+      <!-- Gestileerde kaart -->
+      <div class="location-map" aria-label="Kaart van Aroma Lunchroom">
+        <div class="map-streets"></div>
+        <div class="map-river"></div>
+        <div class="map-pin">
+          <div class="map-pin-label">Aroma · Arkelstraat 33</div>
+          <div class="map-pin-dot"></div>
+        </div>
+        <div class="map-overlay-label">Gorinchem · Hartje Gorcum</div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="location-info" id="reserveer">
+        <h2 style="font-size:34px;margin-bottom:8px">Aroma Lunchroom</h2>
+        <p style="color:var(--ink-2);margin-bottom:20px">
+          <span class="open-dot">Nu geopend</span>
+          <span style="color:var(--ink-3)"> · Sluit om 17:00</span>
+        </p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <span class="contact-label">Adres</span>
+            <span class="contact-val">Arkelstraat 33, 4201 KA Gorinchem</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Telefoon</span>
+            <span class="contact-val"><a href="tel:+31000000000">+31 (0)183 — 00 00 00</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">E-mail</span>
+            <span class="contact-val"><a href="mailto:hallo@aromalunchroom.nl">hallo@aromalunchroom.nl</a></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Openingstijden</span>
+            <span class="contact-val hours-mini">
+              Ma–Vr&nbsp;&nbsp;08:00 — 17:00<br>
+              Zaterdag&nbsp;&nbsp;09:00 — 17:00<br>
+              Zondag&nbsp;&nbsp;<span style="color:var(--ink-3)">Gesloten</span>
+            </span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Goed om te weten</span>
+            <span class="contact-val" style="font-size:14px;color:var(--ink-2)">
+              Wifi · Kindermenu · Honden welkom · Terras
+            </span>
+          </div>
+        </div>
+
+        <div class="socials" aria-label="Social media">
+          <a href="https://www.instagram.com/aromalunchroom/" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.5-2 2-2h2V2.2C16.6 2.1 15.4 2 14.3 2 11.7 2 10 3.7 10 6.9V10H7v4h3v8h3z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Google">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 11v3h5c-.4 2-2.3 3.5-5 3.5-3 0-5.5-2.5-5.5-5.5S9 6.5 12 6.5c1.4 0 2.6.5 3.5 1.4l2.2-2.2C16 4.2 14.1 3.5 12 3.5 7.3 3.5 3.5 7.3 3.5 12s3.8 8.5 8.5 8.5c4.9 0 8.2-3.4 8.2-8.3 0-.6-.1-1.1-.2-1.7H12z"/></svg>
+          </a>
+        </div>
+
+        <div class="location-cta">
+          <a href="tel:+31000000000" class="btn btn-primary">Bel om te reserveren →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta" id="instagram">
+  <div class="wrap">
+    <div class="insta-head">
+      <span class="eyebrow center">Volg ons</span>
+      <div class="insta-handle">
+        <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener">@aromalunchroom</a>
+      </div>
+    </div>
+    <div class="insta-strip">
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80&auto=format&fit=crop" alt="Gyros van boven" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1502747983583-c9f88beea75d?w=600&q=80&auto=format&fit=crop" alt="Koffie en dessert" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop" alt="Vers fruit ontbijt" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80&auto=format&fit=crop" alt="Vitrine bougatsa" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c34c?w=600&q=80&auto=format&fit=crop" alt="Terras zonnig" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
+        <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=600&q=80&auto=format&fit=crop" alt="Team in de keuken" loading="lazy" />
+        <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-mark">
+          <img src="project/assets/logo.png" alt="Aroma" />
+        </div>
+        <div class="footer-tagline">
+          The scent of Greek food.
+          <span class="en">Breakfast · Lunch · Coffee · Desserts</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Bezoek</h4>
+        <ul>
+          <li>Arkelstraat 33</li>
+          <li>4201 KA Gorinchem</li>
+          <li><a href="#locatie">Route plannen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Open</h4>
+        <ul>
+          <li>Ma–Vr · 08:00–17:00</li>
+          <li>Zaterdag · 09:00–17:00</li>
+          <li>Zondag · gesloten</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Volg</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Google Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aroma Lunchroom · KVK 96809957</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Algemene voorwaarden</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll state
+const nav = document.getElementById('nav');
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+updateNav();
+window.addEventListener('scroll', updateNav, { passive: true });
+
+// Mobile menu
+const mobileMenu = document.getElementById('mobile-menu');
+function openMobileMenu() { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('hamburger-btn').addEventListener('click', openMobileMenu);
+document.getElementById('mobile-close-btn').addEventListener('click', closeMobileMenu);
+
+// Smooth scroll
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (href.length < 2) return;
+  const el = document.querySelector(href);
+  if (el) {
+    e.preventDefault();
+    window.scrollTo({ top: el.offsetTop - 60, behavior: 'smooth' });
+  }
+});
+
+// Hours grid — highlight today
+(function() {
+  const HOURS = [
+    { day: "Maandag",    time: "08:00 — 17:00" },
+    { day: "Dinsdag",    time: "08:00 — 17:00" },
+    { day: "Woensdag",   time: "08:00 — 17:00" },
+    { day: "Donderdag",  time: "08:00 — 17:00" },
+    { day: "Vrijdag",    time: "08:00 — 17:00" },
+    { day: "Zaterdag",   time: "09:00 — 17:00" },
+    { day: "Zondag",     time: "Gesloten", closed: true },
+  ];
+  const todayIdx = new Date().getDay(); // 0=Sun
+  const mapIdx = todayIdx === 0 ? 6 : todayIdx - 1;
+  const grid = document.getElementById('hours-grid');
+  HOURS.forEach((h, i) => {
+    const div = document.createElement('div');
+    div.className = 'hours-item' + (h.closed ? ' closed' : '') + (i === mapIdx ? ' today' : '');
+    div.innerHTML = `<span class="day">${h.day}</span><span class="time">${h.time}</span>`;
+    grid.appendChild(div);
+  });
+})();
+</script>
+
+</body>
+</html>
