@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aroma Lunchroom — Hartje Gorcum</title>
-<meta name="description" content="Aroma Lunchroom — Grieks ontbijt, lunch, koffie en zelfgemaakte desserts in Gorinchem. Arkelstraat 33, Ma–Za 08:00–17:00. ★ 5,0 op Google." />
+<title>Aroma Lunchroom | Hartje Gorcum</title>
+<meta name="description" content="Aroma Lunchroom: Grieks ontbijt, lunch, koffie en zelfgemaakte desserts in Gorinchem. Arkelstraat 33, Ma t/m Za 08:00-17:00. ★ 5,0 op Google." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,20 +124,25 @@ h3 { font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2; }
   padding: 12px var(--pad);
 }
 .nav-brand {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 14px;
   text-decoration: none; color: inherit;
 }
 .nav-brand-mark {
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 52px; height: 52px; border-radius: 50%;
   overflow: hidden; flex-shrink: 0;
-  background: var(--brand);
+  background: #fff;
   display: grid; place-items: center;
-  border: 1px solid color-mix(in oklab, var(--brand) 70%, #000);
+  box-shadow: 0 2px 14px rgba(0,0,0,0.22), 0 0 0 2px rgba(255,255,255,0.2);
+  transition: box-shadow .25s ease, transform .2s ease;
 }
-.nav-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.nav-brand-mark:hover { transform: scale(1.05); }
+.nav.scrolled .nav-brand-mark {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10), 0 0 0 1.5px var(--line);
+}
+.nav-brand-mark img { width: 86%; height: 86%; object-fit: contain; }
 .nav-brand-text { display: flex; flex-direction: column; line-height: 1; }
-.nav-brand-name { font-family: var(--serif); font-size: 20px; font-weight: 500; letter-spacing: 0.01em; }
-.nav-brand-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; opacity: 0.7; }
+.nav-brand-name { font-family: var(--serif); font-size: 21px; font-weight: 500; letter-spacing: 0.02em; }
+.nav-brand-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 5px; opacity: 0.65; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a {
   text-decoration: none; font-weight: 500; font-size: 14px;
@@ -305,6 +310,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   aspect-ratio: 4/5;
   border-radius: var(--r-lg);
   overflow: hidden;
+  background: var(--bg-2);
 }
 .over-photo img { width: 100%; height: 100%; object-fit: cover; }
 .over-text { display: flex; flex-direction: column; gap: 24px; }
@@ -341,7 +347,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .menu-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -22px rgba(0,0,0,0.22); border-color: var(--accent); }
-.menu-card-photo { width: 110px; flex-shrink: 0; align-self: stretch; }
+.menu-card-photo { width: 110px; flex-shrink: 0; align-self: stretch; background: var(--bg-2); }
 .menu-card-photo img { width: 100%; height: 100%; object-fit: cover; }
 .menu-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
 .menu-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
@@ -364,7 +370,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   display: grid; grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 180px; gap: 14px;
 }
-.gallery-item { border-radius: var(--r-md); overflow: hidden; position: relative; cursor: pointer; }
+.gallery-item { border-radius: var(--r-md); overflow: hidden; position: relative; cursor: pointer; background: var(--bg-2); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .gallery-item:hover img { transform: scale(1.05); }
 .gallery-item.span-2c { grid-column: span 2; }
@@ -491,7 +497,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 .insta-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
 .insta-tile {
   aspect-ratio: 1/1; border-radius: var(--r-sm); overflow: hidden;
-  position: relative; cursor: pointer; display: block;
+  position: relative; cursor: pointer; display: block; background: var(--bg-2);
 }
 .insta-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .insta-tile:hover img { transform: scale(1.08); }
@@ -515,15 +521,16 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 }
 .footer-brand { display: flex; flex-direction: column; gap: 18px; max-width: 360px; }
 .footer-brand-mark {
-  width: 56px; height: 56px; border-radius: 50%;
+  width: 72px; height: 72px; border-radius: 50%;
   overflow: hidden;
-  background: color-mix(in oklab, var(--brand-ink) 12%, transparent);
-  border: 1px solid color-mix(in oklab, var(--brand-ink) 30%, transparent);
+  background: #fff;
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
   display: grid; place-items: center;
 }
-.footer-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
-.footer-tagline { font-family: var(--serif); font-size: 22px; line-height: 1.3; opacity: 0.92; }
-.footer-tagline .en { display: block; font-style: italic; font-size: 14px; opacity: 0.65; margin-top: 6px; }
+.footer-brand-mark img { width: 86%; height: 86%; object-fit: contain; }
+.footer-tagline { font-family: var(--serif); font-size: 24px; line-height: 1.3; opacity: 0.95; }
+.footer-tagline .en { display: block; font-style: italic; font-size: 14px; opacity: 0.6; margin-top: 6px; }
 .footer-col h4 {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: color-mix(in oklab, var(--brand-ink) 70%, transparent);
@@ -714,7 +721,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="hero-media">
     <img
       src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80&auto=format&fit=crop"
-      alt="Aroma Lunchroom interieur — warme sfeervolle verlichting"
+      alt="Aroma Lunchroom interieur, warme sfeervolle verlichting"
       loading="eager"
     />
   </div>
@@ -724,10 +731,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     </span>
     <h1 style="margin-top:20px">
       De geur van<br>Griekenland in<br>Hartje Gorcum.
-      <span class="en">A taste of Greece — breakfast, lunch &amp; coffee.</span>
+      <span class="en">A taste of Greece: breakfast, lunch &amp; coffee.</span>
     </h1>
     <p class="hero-sub">
-      Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
+      Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts, gemaakt met liefde door Chrysa.
       Welkom in onze warme, lichte plek aan de Arkelstraat.
     </p>
     <div class="hero-cta-row">
@@ -739,7 +746,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="label">Geopend</span>
-        <span class="val">Ma–Za · 08:00 — 17:00</span>
+        <span class="val">Ma t/m Za · 08:00-17:00</span>
       </div>
       <div class="hero-meta-item">
         <span class="label">Adres</span>
@@ -763,7 +770,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="over-grid">
       <div class="over-photo">
         <img
-          src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=900&q=80&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1610631787813-9eeb1a2386cc?w=900&q=80&auto=format&fit=crop"
           alt="Chrysa achter de toonbank van Aroma Lunchroom"
           loading="lazy"
         />
@@ -778,14 +785,14 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           Aroma opende in november 2025 zijn deuren in de Arkelstraat. Eigenaar Chrysa
           brengt de smaken van haar Griekse keuken naar Gorinchem: authentieke yoghurt
           met granola en vers fruit, knapperige bougatsa, gyros pita en handgemaakte
-          loukoumades. Alles zoals oma het maakte — geduldig, eerlijk en met veel olijfolie.
+          loukoumades. Alles zoals oma het maakte: geduldig, eerlijk en met veel olijfolie.
         </p>
         <p>
           We zijn een lichte, ongedwongen plek voor je ochtendkoffie, een rustige lunch
           of zomaar even langs. Kinderen zijn welkom, en je hond mag mee naar binnen.
         </p>
         <div class="over-signature">
-          <span>— Chrysa</span>
+          <span>Chrysa</span>
           <span class="name-label">Eigenaar · Founder</span>
         </div>
         <div class="hours" id="hours-grid">
@@ -807,8 +814,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         </h2>
       </div>
       <p class="lead">
-        Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert —
-        Grieks zoals het hoort.
+        Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert, Grieks zoals het hoort.
       </p>
     </div>
     <div class="menu-grid">
@@ -877,7 +883,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <!-- Pita Gegrilde Groenten -->
       <article class="menu-card">
         <div class="menu-card-photo">
-          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80&auto=format&fit=crop" alt="Pita Gegrilde Groenten" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&auto=format&fit=crop" alt="Pita Gegrilde Groenten" loading="lazy" />
         </div>
         <div class="menu-card-body">
           <div class="menu-card-head">
@@ -898,7 +904,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <!-- Spanakopita -->
       <article class="menu-card">
         <div class="menu-card-photo">
-          <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=700&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1476224203421-74177e79edd4?w=700&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
         </div>
         <div class="menu-card-body">
           <div class="menu-card-head">
@@ -908,7 +914,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
             </h3>
             <span class="menu-card-price">€ 6,50</span>
           </div>
-          <p class="menu-card-desc">Hartige taart van filodeeg, jonge spinazie, feta en lente-ui — zoals oma het maakte.</p>
+          <p class="menu-card-desc">Hartige taart van filodeeg, jonge spinazie, feta en lente-ui, zoals oma het maakte.</p>
           <div class="menu-card-tags">
             <span class="menu-tag veg">Veg</span>
           </div>
@@ -958,7 +964,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     </div>
     <div class="gallery-grid">
       <div class="gallery-item span-2c span-2r">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Interieur Aroma Lunchroom — raamzijde" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Interieur Aroma Lunchroom, raamzijde" loading="lazy" />
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pita gyros close-up" loading="lazy" />
@@ -993,7 +999,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <span class="eyebrow">Wat gasten zeggen</span>
         <h2 style="margin-top:14px">
           ★ 5,0 op Google.<br>
-          <span style="color:var(--ink-3);font-size:0.6em">33 reviews — en groeiende.</span>
+          <span style="color:var(--ink-3);font-size:0.6em">33 reviews, en groeiende.</span>
         </h2>
       </div>
       <p class="lead">Echte reacties van gasten die langs zijn geweest. Kom je ook proeven?</p>
@@ -1052,7 +1058,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <h2 style="margin-top:14px">Plan je bezoek.</h2>
       </div>
       <p class="lead">
-        We zitten in de Arkelstraat — een steenworp van het centrum van Gorinchem.
+        We zitten in de Arkelstraat, een steenworp van het centrum van Gorinchem.
         Parkeren in de buurt, terras voor de deur.
       </p>
     </div>
@@ -1083,7 +1089,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           </div>
           <div class="contact-row">
             <span class="contact-label">Telefoon</span>
-            <span class="contact-val"><a href="tel:+31000000000">+31 (0)183 — 00 00 00</a></span>
+            <span class="contact-val"><a href="tel:+31000000000">+31 (0)183 00 00 00</a></span>
           </div>
           <div class="contact-row">
             <span class="contact-label">E-mail</span>
@@ -1092,8 +1098,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <div class="contact-row">
             <span class="contact-label">Openingstijden</span>
             <span class="contact-val hours-mini">
-              Ma–Vr&nbsp;&nbsp;08:00 — 17:00<br>
-              Zaterdag&nbsp;&nbsp;09:00 — 17:00<br>
+              Ma–Vr&nbsp;&nbsp;08:00-17:00<br>
+              Zaterdag&nbsp;&nbsp;09:00-17:00<br>
               Zondag&nbsp;&nbsp;<span style="color:var(--ink-3)">Gesloten</span>
             </span>
           </div>
@@ -1156,7 +1162,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
       <a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener" class="insta-tile">
-        <img src="https://images.unsplash.com/photo-1559054663-e9e5c6e6e0e9?w=600&q=80&auto=format&fit=crop" alt="Team in de keuken" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1476224203421-74177e79edd4?w=600&q=80&auto=format&fit=crop" alt="Team in de keuken" loading="lazy" />
         <span class="insta-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></span>
       </a>
     </div>
@@ -1213,6 +1219,11 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 </footer>
 
 <script>
+// Hide broken images gracefully — container keeps its warm background
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function() { this.style.opacity = '0'; });
+});
+
 // Nav scroll state
 const nav = document.getElementById('nav');
 function updateNav() {
@@ -1244,12 +1255,12 @@ document.addEventListener('click', (e) => {
 // Hours grid — highlight today
 (function() {
   const HOURS = [
-    { day: "Maandag",    time: "08:00 — 17:00" },
-    { day: "Dinsdag",    time: "08:00 — 17:00" },
-    { day: "Woensdag",   time: "08:00 — 17:00" },
-    { day: "Donderdag",  time: "08:00 — 17:00" },
-    { day: "Vrijdag",    time: "08:00 — 17:00" },
-    { day: "Zaterdag",   time: "09:00 — 17:00" },
+    { day: "Maandag",    time: "08:00-17:00" },
+    { day: "Dinsdag",    time: "08:00-17:00" },
+    { day: "Woensdag",   time: "08:00-17:00" },
+    { day: "Donderdag",  time: "08:00-17:00" },
+    { day: "Vrijdag",    time: "08:00-17:00" },
+    { day: "Zaterdag",   time: "09:00-17:00" },
     { day: "Zondag",     time: "Gesloten", closed: true },
   ];
   const todayIdx = new Date().getDay(); // 0=Sun
