@@ -16,25 +16,44 @@ function OverOns() {
   return (
     <section className="over" id="over">
       <div className="wrap">
+        <div style={{ marginBottom: 56, paddingBottom: 40, borderBottom: '1px solid var(--line)' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '10px 16px', marginBottom: 12 }}>
+            <span style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, letterSpacing: '-0.01em' }}>Aroma</span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>· zelfstandig naamwoord · uit het Grieks</span>
+          </div>
+          <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(17px, 1.5vw, 22px)', fontStyle: 'italic', color: 'var(--ink-2)', marginBottom: 10 }}>
+            "De geur van spijzen, dranken en genotmiddelen."
+          </p>
+          <p style={{ fontSize: 15, color: 'var(--ink-3)', maxWidth: 560 }}>
+            Een reis door Griekenland begint met een geur. Die geur noemen wij Aroma. Onze droom is om de Griekse traditie rondom eten te verbinden met de Nederlandse eetcultuur — Griekse smaken, Nederlandse gewoonten, samen aan tafel.
+          </p>
+        </div>
         <div className="over-grid">
           <div className="over-photo">
             <Placeholder src={PHOTOS.founder} label="Foto · Chrysa achter de toonbank" />
           </div>
           <div className="over-text">
-            <span className="eyebrow">Over Aroma</span>
+            <span className="eyebrow">Het verhaal achter Aroma</span>
             <h2>
-              Een stukje Griekenland, gemaakt met liefde.
-              <span className="en">A little piece of Greece, made with love.</span>
+              Derde generatie,<br/>eerste tafel in Gorinchem.
+              <span className="en">Three generations of cooking, one table in Gorcum.</span>
             </h2>
             <p>
-              Aroma opende in november 2025 zijn deuren in de Arkelstraat. Eigenaar Chrysa
-              brengt de smaken van haar Griekse keuken naar Gorinchem: authentieke yoghurt
-              met granola en vers fruit, knapperige bougatsa, gyros pita en handgemaakte
-              loukoumades. Alles zoals oma het maakte — geduldig, eerlijk en met veel olijfolie.
+              Mijn naam is Chrysa. Ik ben geboren en opgegroeid in Katakolo — een klein kustdorpje
+              aan de westkust van Griekenland, vlakbij het Oude Olympia. Een plek bekend om zijn
+              vissers, zijn zon en de warme gastvrijheid van zijn bewoners.
             </p>
             <p>
-              We zijn een lichte, ongedwongen plek voor je ochtendkoffie, een rustige lunch
-              of zomaar even langs. Kinderen zijn welkom, en je hond mag mee naar binnen.
+              Ik ben de derde generatie van een familie in de horeca. Ons familierestaurant in
+              Griekenland bestaat inmiddels drieënveertig jaar: begonnen door mijn grootouders,
+              doorgegeven aan mijn moeder, en nu aan mij. Hopelijk zetten mijn dochters het ooit voort.
+            </p>
+            <p>
+              De afgelopen twintig jaar mocht ik duizenden gasten ontvangen en verwennen met onze
+              keuken. Zes jaar geleden bracht het leven mij naar Gorinchem, waar ik nu woon met mijn
+              partner en onze twee kleine meiden. Bij Aroma doe ik wat ik altijd heb gedaan: koken,
+              mensen ontvangen en iedereen samenbrengen aan tafel. Of je nu in Gorinchem woont of
+              hier op bezoek bent — mijn tafel is voor jou.
             </p>
             <div className="over-signature">
               <span>— Chrysa</span>
@@ -76,8 +95,9 @@ function Menu() {
             </h2>
           </div>
           <p className="lead">
-            Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert —
-            Grieks zoals het hoort.
+            Alles zelfgemaakt — van hartige omelets, soepen en verse salades tot handgemaakte
+            Griekse desserts. En voor koffieliefhebbers: van espresso tot een authentieke
+            freddo of Griekse warme koffie. Grieks zoals het hoort.
           </p>
         </div>
         <div className="menu-grid">
@@ -133,8 +153,8 @@ function Gallery() {
             <h2 style={{ marginTop: 14 }}>Kom even kijken hoe het voelt.</h2>
           </div>
           <p className="lead">
-            Houten tafels, ochtendlicht en de geur van versgebakken bougatsa. Een plek waar
-            je gerust een uur blijft hangen.
+            Houten tafels, ochtendlicht en de geur van versgebakken bougatsa. Een warme plek
+            waar Aroma-herinneringen worden gemaakt — kom gerust een uur hangen.
           </p>
         </div>
         <div className="gallery-grid">

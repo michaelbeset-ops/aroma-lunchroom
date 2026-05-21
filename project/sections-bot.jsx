@@ -175,7 +175,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="footer-brand-mark"><img src="assets/logo.png" alt="Aroma" /></div>
             <div className="footer-tagline">
-              The scent of Greek food.
+              De geur van Griekenland in hartje Gorcum.
               <span className="en">Breakfast · Lunch · Coffee · Desserts</span>
             </div>
           </div>
