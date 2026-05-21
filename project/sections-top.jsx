@@ -77,8 +77,8 @@ function HeroFull() {
           <span className="en">A taste of Greece — breakfast, lunch &amp; coffee.</span>
         </h1>
         <p className="hero-sub">
-          Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
-          Welkom in onze warme, lichte plek aan de Arkelstraat.
+          Van zelfgemaakte ontbijten en handgemaakte desserts tot authentieke Griekse koffie —
+          gemaakt met liefde door Chrysa. Welkom aan haar tafel in hartje Gorinchem.
         </p>
         <div className="hero-cta-row">
           <a href="#reserveer" className="btn btn-primary">Reserveer een tafel →</a>
@@ -119,7 +119,8 @@ function HeroSplit() {
           <span className="en">A taste of Greece — breakfast, lunch &amp; coffee.</span>
         </h1>
         <p className="hero-sub">
-          Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
+          Van zelfgemaakte ontbijten en handgemaakte desserts tot authentieke Griekse koffie —
+          gemaakt met liefde door Chrysa.
         </p>
         <div className="hero-cta-row">
           <a href="#reserveer" className="btn btn-primary">Reserveer een tafel →</a>
@@ -143,7 +144,8 @@ function HeroAsym() {
           <span className="en">A taste of Greece, every morning.</span>
         </h1>
         <p className="hero-sub">
-          Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
+          Van zelfgemaakte ontbijten en handgemaakte desserts tot authentieke Griekse koffie —
+          gemaakt met liefde door Chrysa.
         </p>
         <div className="hero-cta-row">
           <a href="#reserveer" className="btn btn-primary">Reserveer een tafel →</a>
