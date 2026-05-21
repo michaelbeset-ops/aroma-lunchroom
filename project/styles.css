@@ -1,9 +1,7 @@
 /* ---------- KINGTHINGS CLARITY FONT ---------- */
 @font-face {
   font-family: "Kingthings Clarity";
-  src: url("assets/KingthingsClarity.ttf") format("truetype"),
-       url("assets/kingthings_clarity.ttf") format("truetype"),
-       url("assets/Kingthings_Clarity.ttf") format("truetype");
+  src: url("assets/Kingthings Clarity1.1.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
