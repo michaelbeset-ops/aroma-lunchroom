@@ -1,3 +1,14 @@
+/* ---------- KINGTHINGS CLARITY FONT ---------- */
+@font-face {
+  font-family: "Kingthings Clarity";
+  src: url("assets/KingthingsClarity.ttf") format("truetype"),
+       url("assets/kingthings_clarity.ttf") format("truetype"),
+       url("assets/Kingthings_Clarity.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- TOKENS (palette set by data-palette on <body>) ---------- */
 :root {
   --bg: #f6efe1;
@@ -6,13 +17,13 @@
   --ink-2: #4a4636;
   --ink-3: #7a7460;
   --line: #d9cdb2;
-  --brand: #2d4a2b;
+  --brand: #3f7d38;
   --brand-ink: #f6efe1;
   --accent: #c97b5c;
   --accent-ink: #fff;
   --warm: #e8dcc4;
 
-  --serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --serif: "Kingthings Clarity", "Fraunces", "Cormorant Garamond", Georgia, serif;
   --sans: "Manrope", "DM Sans", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
 
@@ -28,7 +39,7 @@
 /* Palettes */
 body[data-palette="olive"] {
   --bg: #f6efe1; --bg-2: #ece0c5; --ink:#1c1a14; --ink-2:#4a4636; --ink-3:#7a7460;
-  --line:#d9cdb2; --brand:#2d4a2b; --brand-ink:#f6efe1; --accent:#c97b5c; --warm:#e8dcc4;
+  --line:#d9cdb2; --brand:#3f7d38; --brand-ink:#f6efe1; --accent:#c97b5c; --warm:#e8dcc4;
 }
 body[data-palette="taverna"] {
   --bg: #f3e9d7; --bg-2: #ead9bd; --ink:#231a13; --ink-2:#544537; --ink-3:#857158;
@@ -44,9 +55,9 @@ body[data-palette="olive-dark"] {
 }
 
 /* Fonts */
-body[data-fonts="fraunces"] { --serif:"Fraunces", Georgia, serif; --sans:"Manrope", system-ui, sans-serif; }
-body[data-fonts="cormorant"] { --serif:"Cormorant Garamond", Georgia, serif; --sans:"DM Sans", system-ui, sans-serif; }
-body[data-fonts="playfair"] { --serif:"Playfair Display", Georgia, serif; --sans:"Inter", system-ui, sans-serif; }
+body[data-fonts="fraunces"] { --serif:"Kingthings Clarity", "Fraunces", Georgia, serif; --sans:"Manrope", system-ui, sans-serif; }
+body[data-fonts="cormorant"] { --serif:"Kingthings Clarity", "Cormorant Garamond", Georgia, serif; --sans:"DM Sans", system-ui, sans-serif; }
+body[data-fonts="playfair"] { --serif:"Kingthings Clarity", "Playfair Display", Georgia, serif; --sans:"Inter", system-ui, sans-serif; }
 
 * { box-sizing: border-box; }
 html, body { margin:0; padding:0; }
