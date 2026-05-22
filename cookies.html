@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookiebeleid — Aroma Lunchroom</title>
+<meta name="description" content="Cookiebeleid van Aroma Lunchroom, Arkelstraat 33, Gorinchem." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: "Kingthings Clarity";
+  src: url("project/assets/Kingthings Clarity1.1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f6efe1;
+  --bg-2: #ece0c5;
+  --ink: #1c1a14;
+  --ink-2: #4a4636;
+  --ink-3: #7a7460;
+  --line: #d9cdb2;
+  --brand: #3f7d38;
+  --brand-ink: #f6efe1;
+  --accent: #c97b5c;
+  --serif: "Kingthings Clarity", "Fraunces", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --maxw: 780px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brand); }
+a:hover { color: var(--accent); }
+p { margin: 0 0 1em; }
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+}
+h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin-bottom: 12px; }
+h2 { font-size: clamp(20px, 2vw, 26px); line-height: 1.2; margin: 48px 0 12px; }
+h3 { font-size: 17px; font-weight: 600; font-family: var(--sans); margin: 24px 0 8px; }
+
+.top-bar {
+  background: var(--brand);
+  padding: 16px var(--pad);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.top-bar a.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity .15s;
+}
+.top-bar a.back:hover { opacity: 1; }
+
+.content {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 64px var(--pad) 96px;
+}
+.meta {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+}
+hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+ul { padding-left: 20px; margin: 0 0 1em; }
+ul li { margin-bottom: 6px; }
+
+/* Cookie type cards */
+.cookie-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.cookie-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.cookie-card-head h3 { margin: 0; font-size: 16px; }
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.badge-required { background: var(--brand); color: var(--brand-ink); }
+.badge-optional { background: var(--bg-2); color: var(--ink-2); }
+.cookie-card p { font-size: 14px; color: var(--ink-2); margin: 0; }
+
+/* Cookie table */
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 16px 0 0;
+}
+.cookie-table th {
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 2px solid var(--line);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.cookie-table td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  vertical-align: top;
+}
+.cookie-table td:first-child { font-weight: 500; color: var(--ink); font-family: monospace; font-size: 12px; }
+
+/* Consent settings box */
+.consent-box {
+  background: var(--brand);
+  color: var(--brand-ink);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-top: 48px;
+}
+.consent-box h3 { color: var(--brand-ink); font-family: var(--serif); font-size: 20px; margin-bottom: 10px; }
+.consent-box p { font-size: 14px; opacity: 0.85; margin-bottom: 16px; }
+.consent-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.consent-btns button {
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: 2px solid var(--brand-ink);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background .15s, color .15s;
+}
+.btn-accept { background: var(--brand-ink); color: var(--brand); }
+.btn-accept:hover { background: #fff; }
+.btn-decline { background: transparent; color: var(--brand-ink); }
+.btn-decline:hover { background: rgba(255,255,255,0.15); }
+
+.page-footer {
+  background: var(--brand);
+  color: var(--brand-ink);
+  text-align: center;
+  padding: 32px var(--pad);
+  font-size: 13px;
+  opacity: 0.9;
+}
+.page-footer a { color: var(--brand-ink); opacity: 0.75; }
+.page-footer a:hover { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Terug naar de site
+  </a>
+</div>
+
+<div class="content">
+  <h1>Cookiebeleid</h1>
+  <div class="meta">
+    Aroma Lunchroom · Gorinchem &nbsp;|&nbsp; Laatst bijgewerkt: mei 2026
+  </div>
+
+  <p>
+    Op onze website maken wij gebruik van cookies en vergelijkbare technologieën.
+    In dit cookiebeleid leggen wij uit wat cookies zijn, welke cookies wij gebruiken
+    en hoe u uw voorkeuren kunt beheren.
+  </p>
+
+  <h2>1. Wat zijn cookies?</h2>
+  <p>
+    Cookies zijn kleine tekstbestanden die door uw browser worden opgeslagen op uw apparaat
+    wanneer u onze website bezoekt. Ze helpen de website correct te laten functioneren,
+    uw voorkeuren te onthouden en ons inzicht te geven in hoe bezoekers de site gebruiken.
+  </p>
+
+  <h2>2. Welke cookies gebruiken wij?</h2>
+
+  <div class="cookie-card">
+    <div class="cookie-card-head">
+      <h3>Functionele cookies</h3>
+      <span class="badge badge-required">Altijd actief</span>
+    </div>
+    <p>
+      Deze cookies zijn noodzakelijk voor het functioneren van de website. Ze onthouden
+      bijvoorbeeld uw cookievoorkeur. Zonder deze cookies werkt de site niet correct.
+    </p>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Cookie</th><th>Doel</th><th>Bewaartermijn</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>aroma_cookie_consent</td>
+          <td>Onthoudt uw cookievoorkeur</td>
+          <td>1 jaar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cookie-card">
+    <div class="cookie-card-head">
+      <h3>Analytische cookies</h3>
+      <span class="badge badge-optional">Optioneel</span>
+    </div>
+    <p>
+      Wij gebruiken Google Analytics om bij te houden hoe bezoekers onze website gebruiken.
+      De gegevens worden geanonimiseerd verwerkt en zijn niet herleidbaar tot individuele
+      personen. Deze informatie helpt ons de website te verbeteren.
+    </p>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Cookie</th><th>Doel</th><th>Bewaartermijn</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>_ga</td>
+          <td>Uniek bezoekersidentificatie (geanonimiseerd)</td>
+          <td>2 jaar</td>
+        </tr>
+        <tr>
+          <td>_ga_*</td>
+          <td>Sessie-informatie Google Analytics 4</td>
+          <td>2 jaar</td>
+        </tr>
+        <tr>
+          <td>_gid</td>
+          <td>Onderscheidt gebruikers per sessie</td>
+          <td>24 uur</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cookie-card">
+    <div class="cookie-card-head">
+      <h3>Google Maps</h3>
+      <span class="badge badge-optional">Optioneel</span>
+    </div>
+    <p>
+      Onze locatiepagina kan gebruik maken van Google Maps. Google plaatst daarbij
+      mogelijk eigen cookies voor het leveren en verbeteren van de kaartdienst.
+      Zie het <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacybeleid van Google</a>
+      voor meer informatie.
+    </p>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Cookie</th><th>Doel</th><th>Bewaartermijn</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NID, CONSENT</td>
+          <td>Voorkeursinstellingen kaart</td>
+          <td>Tot 6 maanden</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3. Cookies van derden</h2>
+  <p>
+    Naast onze eigen cookies kunnen er cookies worden geplaatst door derde partijen
+    waarvan wij diensten gebruiken, zoals Google. Wij hebben geen directe controle over
+    de cookies die derde partijen plaatsen. Raadpleeg hun privacybeleid voor meer informatie:
+  </p>
+  <ul>
+    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy &amp; Voorwaarden</a></li>
+    <li><a href="https://help.instagram.com/519522125107875" target="_blank" rel="noopener">Instagram / Meta Privacybeleid</a></li>
+  </ul>
+
+  <h2>4. Cookies beheren of verwijderen</h2>
+  <p>
+    U kunt uw toestemming voor optionele cookies op elk moment intrekken via de
+    onderstaande knop. Daarnaast kunt u cookies via uw browser beheren of verwijderen:
+  </p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/nl/kb/cookies-verwijderen-gegevens-wissen-websites-opgeslagen" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/nl-nl/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+    <li><a href="https://support.microsoft.com/nl-nl/microsoft-edge/cookies-verwijderen-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+  </ul>
+  <p>
+    Let op: als u cookies uitschakelt, kan dit invloed hebben op de werking van
+    de website.
+  </p>
+
+  <div class="consent-box">
+    <h3>Uw cookievoorkeuren</h3>
+    <p>U kunt hieronder uw toestemming voor optionele cookies aanpassen.</p>
+    <div class="consent-btns">
+      <button class="btn-accept" onclick="setConsent('accepted')">Alles accepteren</button>
+      <button class="btn-decline" onclick="setConsent('declined')">Alleen noodzakelijk</button>
+    </div>
+    <p id="consent-status" style="margin-top:14px;font-size:13px;opacity:0.75;"></p>
+  </div>
+
+  <h2>5. Meer informatie</h2>
+  <p>
+    Heeft u vragen over ons cookiebeleid? Neem dan contact met ons op:
+    <a href="mailto:info@aromalunchroom.nl">info@aromalunchroom.nl</a>
+  </p>
+  <p>
+    Zie ook ons <a href="privacy.html">privacybeleid</a> voor een volledig overzicht
+    van hoe wij omgaan met uw persoonsgegevens.
+  </p>
+
+  <hr />
+  <p style="font-size:14px;color:var(--ink-3);">
+    Dit cookiebeleid is opgesteld in overeenstemming met de Algemene Verordening
+    Gegevensbescherming (AVG) en de Telecommunicatiewet.
+  </p>
+</div>
+
+<footer class="page-footer">
+  © 2026 Aroma Lunchroom ·
+  <a href="privacy.html">Privacy</a> ·
+  <a href="cookies.html">Cookies</a> ·
+  <a href="index.html">Terug naar de site</a>
+</footer>
+
+<script>
+function setConsent(val) {
+  localStorage.setItem('aroma_cookie_consent', val);
+  const labels = { accepted: 'Uw voorkeur is opgeslagen: alles geaccepteerd.', declined: 'Uw voorkeur is opgeslagen: alleen noodzakelijke cookies.' };
+  document.getElementById('consent-status').textContent = labels[val] || '';
+}
+(function() {
+  const current = localStorage.getItem('aroma_cookie_consent');
+  if (current) {
+    const labels = { accepted: 'Huidige instelling: alles geaccepteerd.', declined: 'Huidige instelling: alleen noodzakelijke cookies.' };
+    document.getElementById('consent-status').textContent = labels[current] || '';
+  }
+})();
+</script>
+</body>
+</html>
