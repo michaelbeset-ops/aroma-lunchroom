@@ -5,8 +5,8 @@ const u = (id, w = 1000) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 window.PHOTOS = {
-  // Hero — cozy cafe / Mediterranean interior
-  heroInterior: u('1554118811-1e0d58224f24', 1800),
+  // Hero — actual Aroma interior photo
+  heroInterior: 'uploads/hero-interior.png',
   heroFood: u('1565299624946-b28f40a0ae38', 1400),
   heroTile1: u('1453614512568-c4024d13c34c', 1200),
   heroTile2: u('1565299585323-38d6b0865b47', 900),
