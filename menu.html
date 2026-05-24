@@ -222,14 +222,14 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 
 /* ---------- CTA STRIP ---------- */
 .menu-cta-strip {
-  background: var(--accent);
-  padding: clamp(48px, 6vw, 72px) var(--pad);
+  background: var(--ink);
+  padding: clamp(48px, 6vw, 80px) var(--pad);
   text-align: center;
 }
-.menu-cta-strip h2 { color: #fff; margin-bottom: 12px; }
-.menu-cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 28px; font-size: 16px; }
-.menu-cta-strip .btn-primary { background: #fff; color: var(--accent); border-color: #fff; }
-.menu-cta-strip .btn-primary:hover { background: var(--bg); }
+.menu-cta-strip h2 { color: var(--bg); margin-bottom: 12px; }
+.menu-cta-strip p { color: color-mix(in oklab, var(--bg) 70%, transparent); margin-bottom: 32px; font-size: 16px; }
+.menu-cta-strip .btn-primary { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.menu-cta-strip .btn-primary:hover { background: #4e9645; border-color: #4e9645; }
 
 /* ---------- FOOTER ---------- */
 .page-footer {
