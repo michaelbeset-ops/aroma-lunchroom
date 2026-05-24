@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu — Aroma Lunchroom Gorinchem</title>
+<meta name="description" content="Bekijk het volledige menu van Aroma Lunchroom. Grieks ontbijt, pita's, desserts en dranken. Arkelstraat 33, Gorinchem." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: "Kingthings Clarity";
+  src: url("project/assets/Kingthings Clarity1.1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f6efe1;
+  --bg-2: #ece0c5;
+  --ink: #1c1a14;
+  --ink-2: #4a4636;
+  --ink-3: #7a7460;
+  --line: #d9cdb2;
+  --brand: #3f7d38;
+  --brand-ink: #f6efe1;
+  --accent: #c97b5c;
+  --accent-ink: #fff;
+  --warm: #e8dcc4;
+  --serif: "Kingthings Clarity", "Fraunces", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --maxw: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+p { margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+}
+h1 { font-size: clamp(40px, 6vw, 80px); line-height: 1; }
+h2 { font-size: clamp(28px, 3vw, 42px); line-height: 1.05; }
+h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px var(--pad);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink);
+}
+.nav-brand-mark {
+  width: 40px; height: 40px; border-radius: 50%; overflow: hidden;
+  background: var(--brand);
+  border: 1px solid color-mix(in oklab, var(--brand) 60%, transparent);
+  display: grid; place-items: center;
+}
+.nav-brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.nav-brand-name { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+.nav-brand-sub { font-size: 11px; color: var(--ink-3); display: block; font-family: var(--mono); letter-spacing: 0.06em; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  text-decoration: none; font-size: 14px; font-weight: 500;
+  color: var(--ink); opacity: 0.75; transition: opacity .15s;
+  position: relative;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+.nav-links a.active::after {
+  content: ""; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--brand); border-radius: 2px;
+}
+.nav-cta { display: flex; align-items: center; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; padding: 10px 22px;
+  border-radius: var(--r-sm); border: 1.5px solid currentColor;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  text-decoration: none; cursor: pointer; transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+
+/* ---------- HERO ---------- */
+.menu-hero {
+  background: var(--brand);
+  color: var(--brand-ink);
+  padding: clamp(60px, 8vw, 100px) var(--pad);
+  text-align: center;
+}
+.menu-hero h1 { color: var(--brand-ink); margin-bottom: 16px; }
+.menu-hero p { color: color-mix(in oklab, var(--brand-ink) 80%, transparent); font-size: clamp(15px, 1.4vw, 18px); max-width: 540px; margin: 0 auto; }
+.menu-hero-meta {
+  display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  margin-top: 32px; padding-top: 32px;
+  border-top: 1px solid color-mix(in oklab, var(--brand-ink) 20%, transparent);
+  font-size: 13px; font-family: var(--mono); letter-spacing: 0.06em;
+  color: color-mix(in oklab, var(--brand-ink) 70%, transparent);
+}
+.menu-hero-meta span { color: var(--brand-ink); font-weight: 500; }
+
+/* ---------- MENU CONTENT ---------- */
+.menu-content { padding: clamp(60px, 8vw, 100px) 0; }
+
+/* Sticky category nav */
+.menu-cat-nav {
+  position: sticky; top: 73px; z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 0 var(--pad);
+  display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+}
+.menu-cat-nav::-webkit-scrollbar { display: none; }
+.menu-cat-btn {
+  padding: 14px 20px;
+  border: none; border-bottom: 2px solid transparent;
+  background: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3); white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+.menu-cat-btn:hover { color: var(--ink); }
+.menu-cat-btn.active { color: var(--brand); border-bottom-color: var(--brand); }
+
+/* Category section */
+.menu-category { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--line); }
+.menu-category:last-child { border-bottom: none; }
+.menu-category-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 24px; margin-bottom: 36px;
+}
+.menu-category-head h2 { }
+.menu-category-desc { color: var(--ink-3); font-size: 14px; max-width: 380px; text-align: right; }
+
+/* Menu items grid */
+.menu-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.menu-item {
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 24px; background: var(--bg);
+  border-radius: 0;
+  transition: background .15s;
+}
+.menu-item:hover { background: var(--bg-2); }
+.menu-item-photo {
+  width: 80px; height: 80px; border-radius: var(--r-sm);
+  overflow: hidden; flex-shrink: 0; background: var(--bg-2);
+}
+.menu-item-photo img { width: 100%; height: 100%; object-fit: cover; }
+.menu-item-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.menu-item-name { font-family: var(--serif); font-size: 17px; font-weight: 500; }
+.menu-item-name .en { display: block; font-size: 11px; color: var(--ink-3); font-style: italic; margin-top: 2px; font-family: var(--sans); font-weight: 400; }
+.menu-item-price { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--brand); white-space: nowrap; flex-shrink: 0; }
+.menu-item-desc { color: var(--ink-2); font-size: 13px; line-height: 1.45; }
+.menu-item-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+
+/* Tags */
+.menu-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px;
+  background: var(--bg-2); color: var(--ink-3);
+}
+.menu-tag.hot { background: color-mix(in oklab, var(--accent) 18%, transparent); color: var(--accent); }
+.menu-tag.veg { background: color-mix(in oklab, var(--brand) 14%, transparent); color: var(--brand); }
+.menu-tag.new { background: color-mix(in oklab, #8b6fd4 16%, transparent); color: #6b4fb4; }
+
+/* Divider rows */
+.menu-divider {
+  grid-column: 1 / -1;
+  height: 1px; background: var(--line);
+  margin: 0;
+}
+
+/* ---------- CTA STRIP ---------- */
+.menu-cta-strip {
+  background: var(--accent);
+  padding: clamp(48px, 6vw, 72px) var(--pad);
+  text-align: center;
+}
+.menu-cta-strip h2 { color: #fff; margin-bottom: 12px; }
+.menu-cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 28px; font-size: 16px; }
+.menu-cta-strip .btn-primary { background: #fff; color: var(--accent); border-color: #fff; }
+.menu-cta-strip .btn-primary:hover { background: var(--bg); }
+
+/* ---------- FOOTER ---------- */
+.page-footer {
+  background: var(--brand);
+  color: var(--brand-ink);
+  padding: 32px var(--pad);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+  font-size: 13px;
+}
+.page-footer a { color: var(--brand-ink); opacity: 0.75; text-decoration: none; }
+.page-footer a:hover { opacity: 1; }
+.page-footer-links { display: flex; gap: 20px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .menu-items { grid-template-columns: 1fr; }
+  .menu-category-head { flex-direction: column; gap: 8px; }
+  .menu-category-desc { text-align: left; }
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-cta .btn-ghost { display: none; }
+  .menu-item { padding: 16px 0; }
+  .menu-item-photo { width: 64px; height: 64px; }
+  .menu-item-name { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-mark"><img src="project/assets/logo.svg" alt="Aroma" /></span>
+    <span>
+      <span class="nav-brand-name">Aroma</span>
+      <span class="nav-brand-sub">Lunchroom · Gorcum</span>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="index.html#sfeer">Sfeer</a>
+    <a href="index.html#over">Over ons</a>
+  </nav>
+  <div class="nav-cta">
+    <a href="index.html#locatie" class="btn btn-primary">Reserveren</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="menu-hero">
+  <div class="wrap">
+    <h1>Ons menu</h1>
+    <p>Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts — eerlijke prijzen, echte smaken.</p>
+    <div class="menu-hero-meta">
+      <div>Geopend <span>Ma–Vr 08:00–17:00 · Za 09:00–17:00</span></div>
+      <div>Adres <span>Arkelstraat 33, Gorinchem</span></div>
+      <div>Allergenen? <span>Vraag ons gerust</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY CATEGORY NAV -->
+<nav class="menu-cat-nav" aria-label="Menucategorieën">
+  <button class="menu-cat-btn active" onclick="scrollToSection('ontbijt')">Ontbijt</button>
+  <button class="menu-cat-btn" onclick="scrollToSection('pitas')">Pita's &amp; Lunch</button>
+  <button class="menu-cat-btn" onclick="scrollToSection('salade')">Salades</button>
+  <button class="menu-cat-btn" onclick="scrollToSection('desserts')">Desserts</button>
+  <button class="menu-cat-btn" onclick="scrollToSection('dranken')">Dranken</button>
+</nav>
+
+<!-- MENU CONTENT -->
+<div class="menu-content">
+  <div class="wrap">
+
+    <!-- ONTBIJT -->
+    <section class="menu-category" id="ontbijt">
+      <div class="menu-category-head">
+        <h2>Ontbijt</h2>
+        <p class="menu-category-desc">Geserveerd van 08:00 tot 11:30 · Zaterdag tot 12:00</p>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=200&q=80&auto=format&fit=crop" alt="Grieks Ontbijt" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Grieks Ontbijt <span class="en">Full Greek breakfast</span></h3>
+              <span class="menu-item-price">€ 12,50</span>
+            </div>
+            <p class="menu-item-desc">Roerei, feta, kalamata-olijven, tomaat, komkommer, tahin en knapperig brood.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&q=80&auto=format&fit=crop" alt="Griekse Yoghurt Bowl" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Griekse Yoghurt Bowl <span class="en">Greek yoghurt bowl</span></h3>
+              <span class="menu-item-price">€ 7,50</span>
+            </div>
+            <p class="menu-item-desc">Authentieke Griekse yoghurt, huisgemaakte granola, banaan, blauwe bessen en honing.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span><span class="menu-tag">GF opt.</span></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&q=80&auto=format&fit=crop" alt="Bougatsa" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Bougatsa <span class="en">Phyllo custard pastry</span></h3>
+              <span class="menu-item-price">€ 5,50</span>
+            </div>
+            <p class="menu-item-desc">Krokant filodeeg met romige vanille-custard, kaneel en poedersuiker. Vers gebakken.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Favoriet</span><span class="menu-tag">Sweet</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=200&q=80&auto=format&fit=crop" alt="Avocado met Feta Toast" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Avocado &amp; Feta Toast <span class="en">Avocado feta toast</span></h3>
+              <span class="menu-item-price">€ 9,00</span>
+            </div>
+            <p class="menu-item-desc">Zuurdesembrood met geplet avocado, verkruimelde feta, chilivlokken en citroen.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1484723091739-30f299b01f58?w=200&q=80&auto=format&fit=crop" alt="Tiropita" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Tiropita <span class="en">Greek cheese pie</span></h3>
+              <span class="menu-item-price">€ 5,00</span>
+            </div>
+            <p class="menu-item-desc">Luchtig filodeeg gevuld met een hartige mix van feta en ricotta. Klein maar vol van smaak.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80&auto=format&fit=crop" alt="Scrambled eggs met Feta" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Scrambled Eggs &amp; Feta <span class="en">Scrambled eggs with feta</span></h3>
+              <span class="menu-item-price">€ 8,50</span>
+            </div>
+            <p class="menu-item-desc">Romige roerei met verse feta, dille en geroosterd brood. Simpel en ontzettend lekker.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PITA'S & LUNCH -->
+    <section class="menu-category" id="pitas">
+      <div class="menu-category-head">
+        <h2>Pita's &amp; Lunch</h2>
+        <p class="menu-category-desc">Geserveerd van 11:00 tot 16:30</p>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=200&q=80&auto=format&fit=crop" alt="Pita Gyros" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Pita Gyros <span class="en">Pork gyros wrap</span></h3>
+              <span class="menu-item-price">€ 9,50</span>
+            </div>
+            <p class="menu-item-desc">Mals varkensvlees van de spies, tzatziki, tomaat, ui en frietjes in een warme pita.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80&auto=format&fit=crop" alt="Pita Gegrilde Groenten" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Pita Gegrilde Groenten <span class="en">Grilled vegetable pita</span></h3>
+              <span class="menu-item-price">€ 9,00</span>
+            </div>
+            <p class="menu-item-desc">Geroosterde courgette, aubergine en paprika met feta-spread en verse munt.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span><span class="menu-tag veg">Vegan opt.</span></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1476224203421-74177e79edd4?w=200&q=80&auto=format&fit=crop" alt="Spanakopita" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Spanakopita <span class="en">Spinach &amp; feta pie</span></h3>
+              <span class="menu-item-price">€ 6,50</span>
+            </div>
+            <p class="menu-item-desc">Hartige taart van filodeeg, jonge spinazie, feta en lente-ui — zoals oma het maakte.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80&auto=format&fit=crop" alt="Pita Kip" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Pita Kip <span class="en">Chicken wrap</span></h3>
+              <span class="menu-item-price">€ 9,50</span>
+            </div>
+            <p class="menu-item-desc">Gegrilde kipgyros met tzatziki, sla, tomaat en rode ui in een zachte pita.</p>
+            <div class="menu-item-tags"><span class="menu-tag new">Nieuw</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SALADES -->
+    <section class="menu-category" id="salade">
+      <div class="menu-category-head">
+        <h2>Salades</h2>
+        <p class="menu-category-desc">Verse bereiding · Kan worden uitgebreid met een pita</p>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&q=80&auto=format&fit=crop" alt="Griekse Salade" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Griekse Salade <span class="en">Classic Greek salad</span></h3>
+              <span class="menu-item-price">€ 9,50</span>
+            </div>
+            <p class="menu-item-desc">Tomaat, komkommer, olijven, paprika, rode ui en een groot blok feta. Olijfolie &amp; oregano.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span><span class="menu-tag veg">GF</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=80&auto=format&fit=crop" alt="Dakos Salade" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Dakos <span class="en">Cretan barley rusk salad</span></h3>
+              <span class="menu-item-price">€ 8,50</span>
+            </div>
+            <p class="menu-item-desc">Gerstebrood geweekt in tomaat, feta, kappertjes, olijven en olijfolie uit Kreta.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span><span class="menu-tag hot">Specialiteit</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DESSERTS -->
+    <section class="menu-category" id="desserts">
+      <div class="menu-category-head">
+        <h2>Desserts &amp; Zoet</h2>
+        <p class="menu-category-desc">Elke dag vers bereid door Chrysa</p>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=200&q=80&auto=format&fit=crop" alt="Loukoumades" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Loukoumades <span class="en">Greek honey doughnuts</span></h3>
+              <span class="menu-item-price">€ 5,50</span>
+            </div>
+            <p class="menu-item-desc">Warme honingbolletjes met kaneel en walnoot. Onze meest bestelde dessert.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span><span class="menu-tag">Sweet</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1519915028121-7d3463d5b1ff?w=200&q=80&auto=format&fit=crop" alt="Baklava" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Baklava <span class="en">Honey &amp; nut pastry</span></h3>
+              <span class="menu-item-price">€ 4,50</span>
+            </div>
+            <p class="menu-item-desc">Gelaagd filodeeg met pistache, walnoot en honing. Per stuk of combinatie van twee.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=200&q=80&auto=format&fit=crop" alt="Galaktoboureko" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Galaktoboureko <span class="en">Custard semolina pie</span></h3>
+              <span class="menu-item-price">€ 5,00</span>
+            </div>
+            <p class="menu-item-desc">Romige gries-custard in krokant filodeeg met sinaasappelsiroop. Chrysa's trots.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Favoriet</span><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=200&q=80&auto=format&fit=crop" alt="Revani" loading="lazy" />
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Revani <span class="en">Greek semolina cake</span></h3>
+              <span class="menu-item-price">€ 4,50</span>
+            </div>
+            <p class="menu-item-desc">Zachte griesmeel-cake gedrenkt in citroensiroop. Licht, fris en heerlijk bij de koffie.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Veg</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DRANKEN -->
+    <section class="menu-category" id="dranken">
+      <div class="menu-category-head">
+        <h2>Dranken</h2>
+        <p class="menu-category-desc">Griekse koffiespecialiteiten &amp; meer</p>
+      </div>
+      <div class="menu-items">
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Griekse Koffie <span class="en">Traditional Greek coffee</span></h3>
+              <span class="menu-item-price">€ 3,50</span>
+            </div>
+            <p class="menu-item-desc">Traditioneel gezet in een briki, sterk en geurig. Geserveerd met een glas water.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Freddo Espresso <span class="en">Iced espresso</span></h3>
+              <span class="menu-item-price">€ 4,50</span>
+            </div>
+            <p class="menu-item-desc">Dubbele espresso geshaked met ijs — de populairste koffie van Griekenland.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Populair</span></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Griekse Frappe <span class="en">Iced instant coffee</span></h3>
+              <span class="menu-item-price">€ 4,00</span>
+            </div>
+            <p class="menu-item-desc">Klassieke schuimende ijskoffie. Met of zonder melk en suiker — zeg maar hoe.</p>
+            <div class="menu-item-tags"></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Cappuccino / Latte <span class="en">Espresso &amp; milk</span></h3>
+              <span class="menu-item-price">€ 4,00</span>
+            </div>
+            <p class="menu-item-desc">Gemaakt met vers gezette espresso en volle melk. Ook beschikbaar als havermelk.</p>
+            <div class="menu-item-tags"></div>
+          </div>
+        </div>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><path d="M2 12h6m8 0h6"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Verse Limonade <span class="en">Fresh lemonade</span></h3>
+              <span class="menu-item-price">€ 4,00</span>
+            </div>
+            <p class="menu-item-desc">Zelfgemaakt met vers geperste citroen, munt en een vleugje honing.</p>
+            <div class="menu-item-tags"><span class="menu-tag veg">Vegan</span></div>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-photo" style="background:var(--bg-2);display:grid;place-items:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" stroke-width="1.5"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><path d="M2 12h6m8 0h6"/></svg>
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-head">
+              <h3 class="menu-item-name">Water / Frisdrank <span class="en">Still / sparkling / soft drink</span></h3>
+              <span class="menu-item-price">€ 2,50</span>
+            </div>
+            <p class="menu-item-desc">Fles water (still of sparkling), Cola, Fanta of Sinas.</p>
+            <div class="menu-item-tags"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /.wrap -->
+</div><!-- /.menu-content -->
+
+<!-- CTA -->
+<div class="menu-cta-strip">
+  <div class="wrap">
+    <h2>Zin gekregen?</h2>
+    <p>Kom langs en proef het zelf. Geen reservering nodig, maar we helpen je graag.</p>
+    <a href="index.html#locatie" class="btn btn-primary">Plan je bezoek →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <span>© 2026 Aroma Lunchroom · KVK 96809957</span>
+  <div class="page-footer-links">
+    <a href="privacy.html">Privacy</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="index.html">Home</a>
+  </div>
+</footer>
+
+<script>
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var navH = document.querySelector('.nav').offsetHeight;
+  var catH = document.querySelector('.menu-cat-nav').offsetHeight;
+  window.scrollTo({ top: el.offsetTop - navH - catH - 8, behavior: 'smooth' });
+  document.querySelectorAll('.menu-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+  event.currentTarget.classList.add('active');
+}
+
+// Highlight active cat on scroll
+(function() {
+  var sections = ['ontbijt','pitas','salade','desserts','dranken'];
+  var btns = document.querySelectorAll('.menu-cat-btn');
+  function update() {
+    var navH = document.querySelector('.nav').offsetHeight;
+    var catH = document.querySelector('.menu-cat-nav').offsetHeight;
+    var offset = navH + catH + 32;
+    var active = 0;
+    sections.forEach(function(id, i) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= offset) active = i;
+    });
+    btns.forEach(function(b, i) { b.classList.toggle('active', i === active); });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+})();
+</script>
+
+</body>
+</html>
