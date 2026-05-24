@@ -115,19 +115,34 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 
 /* ---------- HERO ---------- */
 .menu-hero {
-  background: var(--brand);
+  position: relative;
+  min-height: 72vh;
+  display: flex; align-items: flex-end;
   color: var(--brand-ink);
-  padding: clamp(60px, 8vw, 100px) var(--pad);
+  overflow: hidden;
+}
+.menu-hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center 40%;
+}
+.menu-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0.05) 100%);
+}
+.menu-hero-content {
+  position: relative; z-index: 1;
+  width: 100%; padding: clamp(48px, 6vw, 80px) var(--pad);
   text-align: center;
 }
-.menu-hero h1 { color: var(--brand-ink); margin-bottom: 16px; }
-.menu-hero p { color: color-mix(in oklab, var(--brand-ink) 80%, transparent); font-size: clamp(15px, 1.4vw, 18px); max-width: 540px; margin: 0 auto; }
+.menu-hero h1 { color: #fff; margin-bottom: 16px; text-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+.menu-hero p { color: rgba(255,255,255,0.85); font-size: clamp(15px, 1.4vw, 18px); max-width: 540px; margin: 0 auto; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
 .menu-hero-meta {
   display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
   margin-top: 32px; padding-top: 32px;
-  border-top: 1px solid color-mix(in oklab, var(--brand-ink) 20%, transparent);
+  border-top: 1px solid rgba(255,255,255,0.2);
   font-size: 13px; font-family: var(--mono); letter-spacing: 0.06em;
-  color: color-mix(in oklab, var(--brand-ink) 70%, transparent);
+  color: rgba(255,255,255,0.65);
 }
 .menu-hero-meta span { color: var(--brand-ink); font-weight: 500; }
 
@@ -268,7 +283,9 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 
 <!-- HERO -->
 <div class="menu-hero">
-  <div class="wrap">
+  <img class="menu-hero-img" src="project/uploads/exterior.png" alt="Aroma Lunchroom exterieur — Arkelstraat 33, Gorinchem" />
+  <div class="menu-hero-overlay"></div>
+  <div class="menu-hero-content">
     <h1>Ons menu</h1>
     <p>Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts — eerlijke prijzen, echte smaken.</p>
     <div class="menu-hero-meta">
