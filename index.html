@@ -1333,6 +1333,67 @@ document.addEventListener('click', (e) => {
     grid.appendChild(div);
   });
 })();
+
+// Reviews carousel
+(function() {
+  var outer = document.getElementById('reviews-carousel-outer');
+  var track = document.getElementById('reviews-track');
+  var cards = Array.from(track.querySelectorAll('.review-card'));
+  var dotsEl = document.getElementById('reviews-dots');
+  var prevBtn = document.getElementById('reviews-prev');
+  var nextBtn = document.getElementById('reviews-next');
+  var current = 0;
+
+  function perPage() {
+    return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+  }
+
+  function pages() { return Math.ceil(cards.length / perPage()); }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    var p = pages();
+    for (var i = 0; i < p; i++) {
+      var d = document.createElement('button');
+      d.className = 'reviews-dot' + (i === current ? ' active' : '');
+      d.setAttribute('aria-label', 'Pagina ' + (i + 1));
+      (function(idx) { d.addEventListener('click', function() { goTo(idx); }); })(i);
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(page) {
+    var p = pages();
+    current = Math.max(0, Math.min(page, p - 1));
+    var cardW = cards[0].getBoundingClientRect().width;
+    var gap = 24;
+    var offset = current * perPage() * (cardW + gap);
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= p - 1;
+    buildDots();
+  }
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() { current = 0; goTo(0); }, 100);
+  });
+
+  // Touch/swipe support
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+  });
+
+  buildDots();
+  goTo(0);
+})();
 </script>
 
 <!-- COOKIE BANNER -->
