@@ -687,11 +687,13 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
+    <a href="#sfeer">Sfeer</a>
+    <a href="#over">Over ons</a>
   </nav>
   <div class="nav-cta">
-    <span style="position:relative;display:inline-flex;align-items:center;gap:6px;">
-      <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;">Online bestellen</a>
-      <span style="position:absolute;top:-8px;right:-10px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:2px 6px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
+    <span style="position:relative;display:inline-flex;flex-shrink:0;">
+      <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;padding-right:28px;">Online bestellen</a>
+      <span style="position:absolute;top:-7px;right:-4px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.04em;padding:2px 5px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
     </span>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span>
@@ -714,6 +716,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="mobile-menu-links">
     <a href="index.html" onclick="closeMobileMenu()">Home</a>
     <a href="menu.html">Menu</a>
+    <a href="#sfeer" onclick="closeMobileMenu()">Sfeer</a>
+    <a href="#over" onclick="closeMobileMenu()">Over ons</a>
   </div>
   <div class="mobile-menu-foot">
     <a href="tel:+31000000000" class="btn btn-primary" style="width:100%;justify-content:center">Reserveer een tafel</a>
