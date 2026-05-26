@@ -678,23 +678,21 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 <!-- NAV -->
 <header class="nav" id="nav">
   <a href="#top" class="nav-brand">
-    <span class="nav-brand-mark">
-      <img src="project/assets/logo.svg" alt="Aroma" />
-    </span>
+    <span class="nav-brand-mark" style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--brand);display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--bg-2);border-radius:50%;flex-shrink:0;">α</span>
     <span class="nav-brand-text">
       <span class="nav-brand-name">Aroma</span>
-      <span class="nav-brand-sub">Lunchroom · Gorcum</span>
+      <span class="nav-brand-sub">Lunchroom</span>
     </span>
   </a>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
-    <a href="#sfeer">Sfeer</a>
-    <a href="#over">Over ons</a>
   </nav>
   <div class="nav-cta">
-    <a href="menu.html" class="btn btn-ghost">Bekijk menu</a>
-    <a href="#locatie" class="btn btn-primary always-show">Reserveren</a>
+    <span style="position:relative;display:inline-flex;align-items:center;gap:6px;">
+      <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;">Online bestellen</a>
+      <span style="position:absolute;top:-8px;right:-10px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.04em;padding:2px 6px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
+    </span>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span>
     </button>
@@ -705,12 +703,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-top">
     <a href="#top" class="nav-brand" onclick="closeMobileMenu()">
-      <span class="nav-brand-mark">
-        <img src="project/assets/logo.svg" alt="Aroma" />
-      </span>
+      <span class="nav-brand-mark" style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--brand);display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--bg-2);border-radius:50%;flex-shrink:0;">α</span>
       <span class="nav-brand-text">
         <span class="nav-brand-name">Aroma</span>
-        <span class="nav-brand-sub">Lunchroom · Gorcum</span>
+        <span class="nav-brand-sub">Lunchroom</span>
       </span>
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
@@ -718,8 +714,6 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="mobile-menu-links">
     <a href="index.html" onclick="closeMobileMenu()">Home</a>
     <a href="menu.html">Menu</a>
-    <a href="#sfeer" onclick="closeMobileMenu()">Sfeer</a>
-    <a href="#over" onclick="closeMobileMenu()">Over ons</a>
   </div>
   <div class="mobile-menu-foot">
     <a href="tel:+31000000000" class="btn btn-primary" style="width:100%;justify-content:center">Reserveer een tafel</a>
@@ -738,15 +732,13 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="hero-content">
     <h1>
       De geur van<br>Griekenland in<br>Hartje Gorcum.
-      <span class="en">A taste of Greece — breakfast, lunch &amp; coffee.</span>
+      <span class="en">Koffie · Broodjes · Desserts</span>
     </h1>
     <p class="hero-sub">
-      Ontbijt, lunch, koffie en zelfgemaakte Griekse desserts — gemaakt met liefde door Chrysa.
-      Welkom in onze warme, lichte plek aan de Arkelstraat.
+      Zelfgemaakt Grieks ontbijt, verse lunch en koffie die je goed doet — elke dag met liefde klaargemaakt door Chrysa. Trek gewoon binnen.
     </p>
     <div class="hero-cta-row">
-      <a href="#locatie" class="btn btn-primary">Reserveer een tafel →</a>
-      <a href="menu.html" class="btn btn-ghost on-dark">Bekijk het menu</a>
+      <a href="menu.html" class="btn btn-primary">Menu bekijken →</a>
     </div>
   </div>
   <div class="hero-bottom">
@@ -771,8 +763,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   </div>
 </section>
 
-<!-- OVER ONS -->
-<section class="over" id="over">
+<!-- TIJDELIJK VERBORGEN: Over Aroma -->
+<section class="over" id="over" style="display:none">
   <div class="wrap">
     <div class="over-grid">
       <div class="over-photo">
@@ -810,8 +802,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   </div>
 </section>
 
-<!-- MENU HIGHLIGHTS -->
-<section class="menu" id="menu">
+<!-- TIJDELIJK VERBORGEN: Menu Highlights -->
+<section class="menu" id="menu" style="display:none">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -957,8 +949,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery" id="sfeer">
+<!-- TIJDELIJK VERBORGEN: Sfeer / Kom even kijken -->
+<section class="gallery" id="sfeer" style="display:none">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -1173,7 +1165,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <div class="contact-row">
             <span class="contact-label">Goed om te weten</span>
             <span class="contact-val" style="font-size:14px;color:var(--ink-2)">
-              Wifi · Kindermenu · Honden welkom · Terras
+              Wifi · Kindermenu · Honden welkom · Terras · Speelhoek · Halal opties · Vegan opties
             </span>
           </div>
           <div class="contact-row">
@@ -1190,10 +1182,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <a href="https://www.instagram.com/aromalunchroom/" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
           </a>
-          <a href="#" class="social-btn" aria-label="Facebook">
+          <a href="https://www.facebook.com/aromalunchroom" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.5-2 2-2h2V2.2C16.6 2.1 15.4 2 14.3 2 11.7 2 10 3.7 10 6.9V10H7v4h3v8h3z"/></svg>
           </a>
-          <a href="#" class="social-btn" aria-label="Google">
+          <a href="https://g.page/r/aromalunchroom" class="social-btn" aria-label="Google" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 11v3h5c-.4 2-2.3 3.5-5 3.5-3 0-5.5-2.5-5.5-5.5S9 6.5 12 6.5c1.4 0 2.6.5 3.5 1.4l2.2-2.2C16 4.2 14.1 3.5 12 3.5 7.3 3.5 3.5 7.3 3.5 12s3.8 8.5 8.5 8.5c4.9 0 8.2-3.4 8.2-8.3 0-.6-.1-1.1-.2-1.7H12z"/></svg>
           </a>
         </div>
