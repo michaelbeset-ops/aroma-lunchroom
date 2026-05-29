@@ -66,12 +66,12 @@ function OverOns() {
 }
 
 const MENU_ITEMS = [
-  { nl: "Pita Gyros", en: "Pork gyros wrap", desc: "Mals varkensvlees van de spies, tzatziki, tomaat, ui en frietjes in een warme pita.", price: "€ 9,50", tags: ["Signature"], photo: "gyros" },
-  { nl: "Bougatsa", en: "Phyllo custard pastry", desc: "Krokant filodeeg met romige vanille-custard, kaneel en poedersuiker. Vers gebakken.", price: "€ 5,50", tags: ["Sweet"], photo: "bougatsa" },
-  { nl: "Griekse Yoghurt Bowl", en: "Greek yoghurt bowl", desc: "Authentieke Griekse yoghurt met huisgemaakte granola, banaan, blauwe bessen en honing.", price: "€ 7,50", tags: ["Ontbijt", "Veg"], photo: "yogurtBowl" },
-  { nl: "Pita Gegrilde Groenten", en: "Grilled vegetable pita", desc: "Geroosterde courgette, aubergine, paprika met feta-spread en verse munt.", price: "€ 9,00", tags: ["Veg", "Vegan opt."], photo: "grilledVeggies" },
-  { nl: "Spanakopita", en: "Spinach &amp; feta pie", desc: "Hartige taart van filodeeg, jonge spinazie, feta en lente-ui — zoals oma het maakte.", price: "€ 6,50", tags: ["Veg"], photo: "spanakopita" },
-  { nl: "Loukoumades", en: "Greek honey doughnuts", desc: "Warme honingbolletjes met kaneel en walnoot. Onze meest bestelde dessert.", price: "€ 5,00", tags: ["Signature", "Sweet"], photo: "loukoumades" },
+  { nl: "Bougatsa", en: "Phyllo custard pastry", desc: "Traditioneel Grieks gebakje van flinterdun, knapperig filodeeg gevuld met een romige vanille-custard, kaneel en poedersuiker.", price: "€ 4,00", tags: ["Sweet"], photo: "bougatsa" },
+  { nl: "Griekse Yoghurt", en: "Greek yoghurt with granola & berries", desc: "Authentieke Griekse yoghurt met granola, bosvruchten en honing.", price: "€ 7,50", tags: ["Ontbijt", "Veg"], photo: "yogurtBowl" },
+  { nl: "Spanakopita", en: "Spinach & feta pie", desc: "Knapperige, flinterdunne laagjes filodeeg gevuld met een smeuïge mix van spinazie, zoute fetakaas, eieren en verse kruiden zoals dille en peterselie.", price: "€ 3,30", tags: ["Veg"], photo: "spanakopita" },
+  { nl: "Griekse Salade", en: "Horiatiki — village salad", desc: "Traditionele Griekse salade (Horiatiki) met tomaat, rode ui, komkommer, kappertjes, olijven, oregano, extra vierge olijfolie en fetakaas.", price: "€ 10,50", tags: ["Veg"], photo: "salade" },
+  { nl: "Tiropita", en: "Feta cheese pie", desc: "Krokante korst van knapperig filodeeg gevuld met een romig, hartig mengsel van fetakaas en eieren.", price: "€ 3,30", tags: ["Veg"], photo: "tiropita" },
+  { nl: "Pita Gyros", en: "Chicken gyros wrap", desc: "Zacht, warm pitabroodje rijkelijk gevuld met kipvlees, tomaat, uien en tzatziki.", price: "€ 8,90", tags: ["Signature"], photo: "gyros" },
 ];
 
 function Menu() {
