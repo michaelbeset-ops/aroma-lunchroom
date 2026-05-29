@@ -19,13 +19,13 @@ function OverOns() {
         <div style={{ marginBottom: 56, paddingBottom: 40, borderBottom: '1px solid var(--line)' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '10px 16px', marginBottom: 12 }}>
             <span style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 400, letterSpacing: '-0.01em' }}>Aroma</span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>· zelfstandig naamwoord · uit het Grieks</span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>· ontbijt · koffie · lunch</span>
           </div>
           <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(17px, 1.5vw, 22px)', fontStyle: 'italic', color: 'var(--ink-2)', marginBottom: 10 }}>
-            "De geur van spijzen, dranken en genotmiddelen."
+            "Een stukje Griekenland, gemaakt met liefde."
           </p>
           <p style={{ fontSize: 15, color: 'var(--ink-3)', maxWidth: 560 }}>
-            Een reis door Griekenland begint met een geur. Die geur noemen wij Aroma. Onze droom is om de Griekse traditie rondom eten te verbinden met de Nederlandse eetcultuur — Griekse smaken, Nederlandse gewoonten, samen aan tafel.
+            Aroma is de nieuwe ontbijt-, koffie- en lunchspot van Chrysa. Geboren in Griekenland, inmiddels vijf jaar in Nederland en nu samen met haar partner en twee dochters neergestreken in onze binnenstad.
           </p>
         </div>
         <div className="over-grid">
@@ -35,25 +35,16 @@ function OverOns() {
           <div className="over-text">
             <span className="eyebrow">Het verhaal achter Aroma</span>
             <h2>
-              Derde generatie,<br/>eerste tafel in Gorinchem.
-              <span className="en">Three generations of cooking, one table in Gorcum.</span>
+              Een gastvrije plek<br/>waar je je thuis voelt.
             </h2>
             <p>
-              Mijn naam is Chrysa. Ik ben geboren en opgegroeid in Katakolo — een klein kustdorpje
-              aan de westkust van Griekenland, vlakbij het Oude Olympia. Een plek bekend om zijn
-              vissers, zijn zon en de warme gastvrijheid van zijn bewoners.
+              Wij zijn een gastvrije plek voor koffie, een rustige lunch of iets lekkers. Bij Aroma worden Nederlandse eetmomenten gemixt met Griekse smaken.
             </p>
             <p>
-              Ik ben de derde generatie van een familie in de horeca. Ons familierestaurant in
-              Griekenland bestaat inmiddels drieënveertig jaar: begonnen door mijn grootouders,
-              doorgegeven aan mijn moeder, en nu aan mij. Hopelijk zetten mijn dochters het ooit voort.
+              Chrysa werkt zoveel mogelijk met Griekse ingrediënten: extra vierge olijfolie uit eigen productie, honing, yoghurt, Griekse kazen en nog veel meer. Het grootste deel van het eten bereidt ze zelf, met heel veel liefde voor de keuken waar ze mee is opgegroeid.
             </p>
             <p>
-              De afgelopen twintig jaar mocht ik duizenden gasten ontvangen en verwennen met onze
-              keuken. Zes jaar geleden bracht het leven mij naar Gorinchem, waar ik nu woon met mijn
-              partner en onze twee kleine meiden. Bij Aroma doe ik wat ik altijd heb gedaan: koken,
-              mensen ontvangen en iedereen samenbrengen aan tafel. Of je nu in Gorinchem woont of
-              hier op bezoek bent — mijn tafel is voor jou.
+              Op de kaart staan vegetarische en vegan opties, halal keuzes en genoeg lekkers voor kinderen. De zaak is kind- én hondvriendelijk, dus ga vooral met het hele gezin langs! Je kunt er terecht voor ontbijt, lunch, koffie, zoetigheden en hartige bladerdeegspecialiteiten.
             </p>
             <div className="over-signature">
               <span>— Chrysa</span>
@@ -75,12 +66,12 @@ function OverOns() {
 }
 
 const MENU_ITEMS = [
-  { nl: "Pita Gyros", en: "Pork gyros wrap", desc: "Mals varkensvlees van de spies, tzatziki, tomaat, ui en frietjes in een warme pita.", price: "€ 9,50", tags: ["Signature"], photo: "gyros" },
-  { nl: "Bougatsa", en: "Phyllo custard pastry", desc: "Krokant filodeeg met romige vanille-custard, kaneel en poedersuiker. Vers gebakken.", price: "€ 5,50", tags: ["Sweet"], photo: "bougatsa" },
-  { nl: "Griekse Yoghurt Bowl", en: "Greek yoghurt bowl", desc: "Authentieke Griekse yoghurt met huisgemaakte granola, banaan, blauwe bessen en honing.", price: "€ 7,50", tags: ["Ontbijt", "Veg"], photo: "yogurtBowl" },
-  { nl: "Pita Gegrilde Groenten", en: "Grilled vegetable pita", desc: "Geroosterde courgette, aubergine, paprika met feta-spread en verse munt.", price: "€ 9,00", tags: ["Veg", "Vegan opt."], photo: "grilledVeggies" },
-  { nl: "Spanakopita", en: "Spinach &amp; feta pie", desc: "Hartige taart van filodeeg, jonge spinazie, feta en lente-ui — zoals oma het maakte.", price: "€ 6,50", tags: ["Veg"], photo: "spanakopita" },
-  { nl: "Loukoumades", en: "Greek honey doughnuts", desc: "Warme honingbolletjes met kaneel en walnoot. Onze meest bestelde dessert.", price: "€ 5,00", tags: ["Signature", "Sweet"], photo: "loukoumades" },
+  { nl: "Bougatsa", en: "Phyllo custard pastry", desc: "Traditioneel Grieks gebakje van flinterdun, knapperig filodeeg gevuld met een romige vanille-custard, kaneel en poedersuiker.", price: "€ 4,00", tags: ["Sweet"], photo: "bougatsa" },
+  { nl: "Griekse Yoghurt", en: "Greek yoghurt with granola & berries", desc: "Authentieke Griekse yoghurt met granola, bosvruchten en honing.", price: "€ 7,50", tags: ["Ontbijt", "Veg"], photo: "yogurtBowl" },
+  { nl: "Spanakopita", en: "Spinach & feta pie", desc: "Knapperige, flinterdunne laagjes filodeeg gevuld met een smeuïge mix van spinazie, zoute fetakaas, eieren en verse kruiden zoals dille en peterselie.", price: "€ 3,30", tags: ["Veg"], photo: "spanakopita" },
+  { nl: "Griekse Salade", en: "Horiatiki — village salad", desc: "Traditionele Griekse salade (Horiatiki) met tomaat, rode ui, komkommer, kappertjes, olijven, oregano, extra vierge olijfolie en fetakaas.", price: "€ 10,50", tags: ["Veg"], photo: "salade" },
+  { nl: "Tiropita", en: "Feta cheese pie", desc: "Krokante korst van knapperig filodeeg gevuld met een romig, hartig mengsel van fetakaas en eieren.", price: "€ 3,30", tags: ["Veg"], photo: "tiropita" },
+  { nl: "Pita Gyros", en: "Chicken gyros wrap", desc: "Zacht, warm pitabroodje rijkelijk gevuld met kipvlees, tomaat, uien en tzatziki.", price: "€ 8,90", tags: ["Signature"], photo: "gyros" },
 ];
 
 function Menu() {

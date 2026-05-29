@@ -7,14 +7,59 @@ const REVIEWS = [
     meta: "Google review · 3 maanden geleden",
   },
   {
-    quote: "Nieuwe plek in Gorinchem is echt een aanrader! Lekker eten voor weinig geld. Pita Gyros is echt een aanrader en voor vega/vegan is de Pita gegrilde groenten erg lekker.",
+    quote: "Nieuwe plek in Gorinchem is echt een aanrader! Lekker eten voor weinig geld. Pita Gyros is echt een aanrader en voor vega/vegan is de Pita gegrilde groenten erg lekker. Kindvriendelijk met speelhoekje bij de trap.",
     name: "Rianneke",
+    meta: "Google review · 5 maanden geleden",
+  },
+  {
+    quote: "Aroma lunchroom is zeker aan te raden :) Heel lekker Grieks eten aan een voordelige prijs met vriendelijke bediening. We aten een lekkere lunch voor maar €13 per persoon.",
+    name: "Lien Claes",
     meta: "Google review · 4 maanden geleden",
   },
   {
-    quote: "Aroma lunchroom is zeker aan te raden :) Heel lekker Grieks eten aan een voordelige prijs met vriendelijke bediening.",
-    name: "Lien Claes",
+    quote: "Heel gezellig! Lekker eten en een goeie sfeer. Zeker een aanrader.",
+    name: "Demi Bleijenberg",
+    meta: "Google review · 5 maanden geleden",
+  },
+  {
+    quote: "Twee maal hier geweest om te lunchen en als halve Griek ben ik ontzettend blij dat deze plek er is. De freddo cappuccino is top en de bougatsa is echt heerlijk. Absoluut een aanrader!",
+    name: "Petros",
     meta: "Google review · 4 maanden geleden",
+  },
+  {
+    quote: "Lekkere Cappuccino met Bougatsa op. Heerlijk! Ziet er simpel uit, maar was heel smaakvol.",
+    name: "Jenny Van Asch",
+    meta: "Google review · 5 maanden geleden",
+  },
+  {
+    quote: "Lekker doen! Heerlijke echte Illy koffie ook. Dan weet je wat lekkere koffie is. Neem vooral iets lekkers bij de koffie — vers en vriendelijk.",
+    name: "Astrid Kemp - van Rijn",
+    meta: "Google review · 3 maanden geleden",
+  },
+  {
+    quote: "Hele gezellige en leuke plek in hartje Gorkum, vriendelijk personeel en heerlijk eten. Zeker waard om hier eens iets lekkers te komen eten!",
+    name: "Lotte van Asch",
+    meta: "Google review · 5 maanden geleden",
+  },
+  {
+    quote: "Heerlijk eten, lieve mensen en een speelhoekje. Top dus!",
+    name: "Lianne Alblas",
+    meta: "Google review · 5 maanden geleden",
+  },
+  {
+    quote: "Super lekker en vriendelijke bediening.",
+    name: "Marie-jeanne Samyn",
+    meta: "Google review · recent",
+  },
+  {
+    quote: "Heerlijk gebak en veel lekkere lunchgerechten.",
+    name: "Maartje Maas",
+    meta: "Google review · recent",
+  },
+  {
+    quote: "Goede kwaliteit eten, lekker gekruid en gezellig. Aanrader.",
+    name: "Hugo Beker",
+    meta: "Google review · recent",
   },
 ];
 
@@ -116,10 +161,10 @@ function Location() {
               <a href="https://www.instagram.com/aromalunchroom/" className="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
               </a>
-              <a href="#" className="social-btn" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61587025765053" className="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.5-2 2-2h2V2.2C16.6 2.1 15.4 2 14.3 2 11.7 2 10 3.7 10 6.9V10H7v4h3v8h3z"/></svg>
               </a>
-              <a href="#" className="social-btn" aria-label="Google">
+              <a href="https://www.google.com/search?sca_esv=c18721e5b7b34c1a&sxsrf=ANbL-n5GlNj7qOUMfp2ePul6_m3VIiHCWg:1780055797424&q=aroma+lunchroom&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qObMkIjTX6LDKlvXRafoAq5URweI7k0hEAaWsJmIBGAoBz56oiNsadH6Ck04zAlamY5c7FU8%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWVWHlVzce4ttQBIIF4RZ6pKxlbtJt4Ui1MkLMdlGa2hObSHlP_AA6TeyDLvl-M-5szXcFaYIu2JMj4Tj989gL8-hrqS4&sa=X&ved=2ahUKEwjInPHLuN6UAxX-gf0HHSAXO-MQ3PALegQIFRAE&biw=1920&bih=911&dpr=1" className="social-btn" aria-label="Google" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 11v3h5c-.4 2-2.3 3.5-5 3.5-3 0-5.5-2.5-5.5-5.5S9 6.5 12 6.5c1.4 0 2.6.5 3.5 1.4l2.2-2.2C16 4.2 14.1 3.5 12 3.5 7.3 3.5 3.5 7.3 3.5 12s3.8 8.5 8.5 8.5c4.9 0 8.2-3.4 8.2-8.3 0-.6-.1-1.1-.2-1.7H12z"/></svg>
               </a>
             </div>
@@ -199,8 +244,8 @@ function Footer() {
             <h4>Volg</h4>
             <ul>
               <li><a href="https://www.instagram.com/aromalunchroom/" target="_blank" rel="noopener">Instagram</a></li>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Google Reviews</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61587025765053" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://www.google.com/search?sca_esv=c18721e5b7b34c1a&sxsrf=ANbL-n5GlNj7qOUMfp2ePul6_m3VIiHCWg:1780055797424&q=aroma+lunchroom&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qObMkIjTX6LDKlvXRafoAq5URweI7k0hEAaWsJmIBGAoBz56oiNsadH6Ck04zAlamY5c7FU8%3D&uds=ALYpb_n_EM_B_ErB9c5NX69H4GoWVWHlVzce4ttQBIIF4RZ6pKxlbtJt4Ui1MkLMdlGa2hObSHlP_AA6TeyDLvl-M-5szXcFaYIu2JMj4Tj989gL8-hrqS4&sa=X&ved=2ahUKEwjInPHLuN6UAxX-gf0HHSAXO-MQ3PALegQIFRAE&biw=1920&bih=911&dpr=1" target="_blank" rel="noopener">Google Reviews</a></li>
             </ul>
           </div>
         </div>
