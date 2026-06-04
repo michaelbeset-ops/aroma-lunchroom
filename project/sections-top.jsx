@@ -1,4 +1,6 @@
 /* global React, Placeholder, PHOTOS */
+import AromaLogo from './AromaLogo';
+
 const { useState: useStateTop, useEffect: useEffectTop } = React;
 
 function Nav({ onOpenMenu, onReserve }) {
@@ -11,12 +13,8 @@ function Nav({ onOpenMenu, onReserve }) {
   }, []);
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
-      <a href="#top" className="nav-brand">
-        <span className="nav-brand-mark"><img src="assets/logo.png" alt="Aroma" /></span>
-        <span className="nav-brand-text">
-          <span className="nav-brand-name">Aroma</span>
-          <span className="nav-brand-sub">Lunchroom · Gorcum</span>
-        </span>
+      <a href="/" style={{ textDecoration: 'none' }}>
+        <AromaLogo size="md" />
       </a>
       <nav className="nav-links">
         <a href="#over">Over</a>
@@ -38,12 +36,8 @@ function MobileMenu({ open, onClose }) {
   return (
     <div className={`mobile-menu ${open ? 'open' : ''}`}>
       <div className="mobile-menu-top">
-        <a href="#top" className="nav-brand" onClick={onClose}>
-          <span className="nav-brand-mark"><img src="assets/logo.png" alt="Aroma" /></span>
-          <span className="nav-brand-text">
-            <span className="nav-brand-name">Aroma</span>
-            <span className="nav-brand-sub">Lunchroom · Gorcum</span>
-          </span>
+        <a href="/" style={{ textDecoration: 'none' }} onClick={onClose}>
+          <AromaLogo size="md" />
         </a>
         <button className="nav-hamburger" onClick={onClose} aria-label="Sluit menu" style={{ display: 'inline-flex' }}>×</button>
       </div>
