@@ -147,77 +147,32 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 .menu-hero-meta span { color: var(--brand-ink); font-weight: 500; }
 
 /* ---------- MENU CONTENT ---------- */
-.menu-content { padding: clamp(60px, 8vw, 100px) 0; }
+.menu-content { padding: clamp(40px, 6vw, 80px) 0; }
 
-/* Sticky category nav */
-.menu-cat-nav {
-  position: sticky; top: 73px; z-index: 50;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-  padding: 0 var(--pad);
-  display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
-}
-.menu-cat-nav::-webkit-scrollbar { display: none; }
-.menu-cat-btn {
-  padding: 14px 20px;
-  border: none; border-bottom: 2px solid transparent;
-  background: none; cursor: pointer;
-  font-family: var(--mono); font-size: 11px; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-3); white-space: nowrap;
-  transition: color .15s, border-color .15s;
-}
-.menu-cat-btn:hover { color: var(--ink); }
-.menu-cat-btn.active { color: var(--brand); border-bottom-color: var(--brand); }
-
-/* Category section */
-.menu-category { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--line); }
-.menu-category:last-child { border-bottom: none; }
-.menu-category-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 24px; margin-bottom: 36px;
-}
-.menu-category-head h2 { }
-.menu-category-desc { color: var(--ink-3); font-size: 14px; max-width: 380px; text-align: right; }
-
-/* Menu items grid */
-.menu-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-.menu-item {
-  display: flex; align-items: center; gap: 20px;
-  padding: 20px 24px; background: var(--bg);
-  border-radius: 0;
-  transition: background .15s;
-}
-.menu-item:hover { background: var(--bg-2); }
-.menu-item-photo {
-  width: 80px; height: 80px; border-radius: var(--r-sm);
-  overflow: hidden; flex-shrink: 0; background: var(--bg-2);
-}
-.menu-item-photo img { width: 100%; height: 100%; object-fit: cover; }
-.menu-item-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-.menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.menu-item-name { font-family: var(--serif); font-size: 17px; font-weight: 500; }
-.menu-item-name .en { display: block; font-size: 11px; color: var(--ink-3); font-style: italic; margin-top: 2px; font-family: var(--sans); font-weight: 400; }
-.menu-item-price { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--brand); white-space: nowrap; flex-shrink: 0; }
-.menu-item-desc { color: var(--ink-2); font-size: 13px; line-height: 1.45; }
-.menu-item-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
-
-/* Tags */
-.menu-tag {
-  display: inline-block; font-size: 10px; font-weight: 600;
-  font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 2px 7px; border-radius: 3px;
-  background: var(--bg-2); color: var(--ink-3);
-}
-.menu-tag.hot { background: color-mix(in oklab, var(--accent) 18%, transparent); color: var(--accent); }
-.menu-tag.veg { background: color-mix(in oklab, var(--brand) 14%, transparent); color: var(--brand); }
-.menu-tag.new { background: color-mix(in oklab, #8b6fd4 16%, transparent); color: #6b4fb4; }
-
-/* Divider rows */
-.menu-divider {
-  grid-column: 1 / -1;
-  height: 1px; background: var(--line);
-  margin: 0;
+/* Tab nav */
+.menu-tabs { display:flex; flex-wrap:wrap; gap:0; border-bottom:2px solid var(--line); margin-bottom:48px; }
+.menu-tab-btn { background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-2px; padding:11px 20px; font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); cursor:pointer; transition:color .15s,border-color .15s; white-space:nowrap; }
+.menu-tab-btn:hover { color:var(--ink); }
+.menu-tab-btn.active { color:var(--brand); border-bottom-color:var(--brand); }
+.menu-tab-panel { display:none; }
+.menu-tab-panel.active { display:block; }
+.menu-tab-content { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:40px 56px; }
+.menu-section-header { margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.menu-section-title { font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brand); margin:0 0 3px; }
+.menu-section-note { font-size:11px; color:var(--ink-3); font-style:italic; margin:0; line-height:1.4; }
+.menu-item-list { display:flex; flex-direction:column; gap:0; }
+.menu-item-row { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--line); }
+.menu-item-row:last-child { border-bottom:none; }
+.menu-item-main { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.menu-item-name { font-size:14px; font-weight:600; color:var(--ink); line-height:1.3; }
+.menu-item-desc { font-size:12px; color:var(--ink-3); line-height:1.4; }
+.menu-item-price { font-family:var(--mono); font-size:13px; font-weight:500; color:var(--brand); white-space:nowrap; flex-shrink:0; }
+.menu-allergen { margin-top:52px; padding:18px 22px; background:var(--bg-2); border-radius:var(--r-md); border:1px solid var(--line); font-size:13px; color:var(--ink-2); line-height:1.6; }
+.menu-allergen p { margin:0 0 4px; }
+.menu-allergen p:last-child { margin-bottom:0; }
+@media (max-width: 600px) {
+  .menu-tab-btn { padding:9px 13px; font-size:11px; }
+  .menu-tab-content { grid-template-columns:1fr; gap:32px; }
 }
 
 /* ---------- CTA STRIP ---------- */
@@ -296,18 +251,256 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
   </div>
 </div>
 
-<!-- STICKY CATEGORY NAV -->
-<nav class="menu-cat-nav" aria-label="Menucategorieën">
-  <button class="menu-cat-btn active" onclick="scrollToSection('ontbijt')">Ontbijt</button>
-  <button class="menu-cat-btn" onclick="scrollToSection('pitas')">Pita's &amp; Lunch</button>
-  <button class="menu-cat-btn" onclick="scrollToSection('salade')">Salades</button>
-  <button class="menu-cat-btn" onclick="scrollToSection('desserts')">Desserts</button>
-  <button class="menu-cat-btn" onclick="scrollToSection('dranken')">Dranken</button>
-</nav>
-
 <!-- MENU CONTENT -->
 <div class="menu-content">
   <div class="wrap">
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab-btn active" data-tab="ontbijt" role="tab">Ontbijt</button>
+      <button class="menu-tab-btn" data-tab="broodjes" role="tab">Broodjes &amp; Tosti</button>
+      <button class="menu-tab-btn" data-tab="hartig" role="tab">Hartig Grieks</button>
+      <button class="menu-tab-btn" data-tab="zoet" role="tab">Zoetigheden</button>
+      <button class="menu-tab-btn" data-tab="dranken" role="tab">Koffie &amp; Dranken</button>
+      <button class="menu-tab-btn" data-tab="kids" role="tab">Kids</button>
+    </div>
+    <div class="menu-tab-panels">
+    <div class="menu-tab-panel active" id="tab-ontbijt">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Ontbijtplank</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Ontbijtplank</span><span class="menu-item-desc">Koffie, thee of cappuccino &middot; croissant &middot; pistolet met ham-kaas-ei</span></div><span class="menu-item-price">&euro;&nbsp;9,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Ontbijtplank Compleet</span><span class="menu-item-desc">Koffie, thee of cappuccino &middot; croissant &middot; pistolet met ham-kaas-ei &middot; griekse yoghurt met granola, fruit en honing &middot; mini jus d&rsquo;orange</span></div><span class="menu-item-price">&euro;&nbsp;12,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Croissant</span><span class="menu-item-desc">Optioneel: jam &middot; echte boter &middot; nutella (+&euro;&nbsp;0,50 p.st.)</span></div><span class="menu-item-price">&euro;&nbsp;1,50</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Authentieke Griekse Yoghurt</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Granola &amp; tropisch fruit</span><span class="menu-item-desc">Griekse honing, granola, tropisch fruit</span></div><span class="menu-item-price">&euro;&nbsp;7,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Honing &amp; walnoten</span><span class="menu-item-desc">Griekse honing, walnoten, gedroogd fruit</span></div><span class="menu-item-price">&euro;&nbsp;7,50</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Bagels</h3><p class="menu-section-note">Vanaf 09:00 tot 16:00</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Warme Griekse Bagel</span><span class="menu-item-desc">Gebakken ei, roomkaas, rucola, gegrilde paprika</span></div><span class="menu-item-price">&euro;&nbsp;7,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Warme Griekse Bagel Fetakaas</span><span class="menu-item-desc">Tomaat, olijven, fetakaas, ui, pittige smeerkaas</span></div><span class="menu-item-price">&euro;&nbsp;7,90</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Eat Like a Greek!</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Griekse Ontbijtplank</span><span class="menu-item-desc">Koffie/thee/cappuccino &middot; bladerdeeg (feta of spinazie) &middot; griekse yoghurt met walnoten en honing &middot; mini zelfgemaakte citroenlimonade</span></div><span class="menu-item-price">&euro;&nbsp;14,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Bougatsa</span><span class="menu-item-desc">Bladerdeegflap met vanille custardvulling</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tsoureki &mdash; Griekse yoghurt, honing &amp; walnoten</span><span class="menu-item-desc">Kruidig briocheachtig paasbrood</span></div><span class="menu-item-price">&euro;&nbsp;5,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tsoureki &mdash; Nutella &amp; gekarameliseerde hazelnoten</span><span class="menu-item-desc">Kruidig briocheachtig paasbrood</span></div><span class="menu-item-price">&euro;&nbsp;5,00</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu-tab-panel" id="tab-broodjes">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Tosti</h3><p class="menu-section-note">Vanaf 09:00 tot 16:00 &middot; wit of bruin brood &middot; geserveerd met groene salade en mayonaise</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tosti Kaas of Ham</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tosti Ham en Kaas</span></div><span class="menu-item-price">&euro;&nbsp;6,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tosti Griekse Stijl</span><span class="menu-item-desc">Gravierakaas, mortadella, tomaat en komkommer</span></div><span class="menu-item-price">&euro;&nbsp;7,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Pita Tosti</h3><p class="menu-section-note">Vanaf 09:00 tot 16:00 &middot; warm pita broodje &middot; geserveerd met griekse salade</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita Tosti Kaas of Ham</span></div><span class="menu-item-price">&euro;&nbsp;4,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita Tosti Ham en Kaas</span></div><span class="menu-item-price">&euro;&nbsp;5,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita Tosti Vegetarian</span><span class="menu-item-desc">Kaas, champignons, paprika, gekarameliseerde uien</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Uitsmijters</h3><p class="menu-section-note">Vanaf 09:00 tot 16:00 &middot; twee gebakken eieren op warm mais brood &middot; groene salade &middot; extra ei +&euro;&nbsp;1,50</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Uitsmijter Klassiek</span><span class="menu-item-desc">Ham en kaas</span></div><span class="menu-item-price">&euro;&nbsp;7,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Uitsmijter Speciaal</span><span class="menu-item-desc">Griekse kaas, mortadella en champignons</span></div><span class="menu-item-price">&euro;&nbsp;8,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Uitsmijter Griekse Stijl</span><span class="menu-item-desc">Gekarameliseerde cherrytomaatjes en fetakaas</span></div><span class="menu-item-price">&euro;&nbsp;8,50</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Broodjes</h3><p class="menu-section-note">Vanaf 10:00 tot 16:00</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Broodje Gezond</span><span class="menu-item-desc">Ham, kaas, tomaat, komkommer, ei, mayonaise &middot; pistolet wit</span></div><span class="menu-item-price">&euro;&nbsp;4,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Broodje Homemade Tonijnsalade</span><span class="menu-item-desc">Tomaat, komkommer, rucola &middot; pistolet wit</span></div><span class="menu-item-price">&euro;&nbsp;5,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Broodje Griekse Salade</span><span class="menu-item-desc">Olijvenpasta, fetakaas, tomaat, komkommer, ui, olijven &middot; Grieks flatbread</span></div><span class="menu-item-price">&euro;&nbsp;7,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Broodje Mediterrane</span><span class="menu-item-desc">Pesto, graviera kaas, mortadella, zongedroogde tomaat &middot; Grieks flatbread</span></div><span class="menu-item-price">&euro;&nbsp;7,90</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Warme Broodjes</h3><p class="menu-section-note">Vanaf 10:00 tot 16:00 &middot; geserveerd met groene salade</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Broodje Homemade Kipfilet Speciaal</span><span class="menu-item-desc">Champignons, mozarella, gemarineerde uien, homemade saus &middot; meergranen triangel</span></div><span class="menu-item-price">&euro;&nbsp;10,20</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Italiaanse Bol</span><span class="menu-item-desc">Kaas, chorizo, salami, wortels, rode paprika, jalape&ntilde;os &middot; wit</span></div><span class="menu-item-price">&euro;&nbsp;9,50</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Luxe Warme Pita&rsquo;s</h3><p class="menu-section-note">Vanaf 10:00 tot 16:00 &middot; geserveerd met groene salade</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita met Kip Gyros</span><span class="menu-item-desc">Tomaat, tzatziki, gemarineerde uien</span></div><span class="menu-item-price">&euro;&nbsp;8,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita met Talagani Kaas</span><span class="menu-item-desc">Vijgenjam, gekarameliseerde uien, tomaten</span></div><span class="menu-item-price">&euro;&nbsp;8,90</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pita Vegetarian</span><span class="menu-item-desc">Olijvenpasta, gegrilde groenten (champignons, paprika, aubergine)</span></div><span class="menu-item-price">&euro;&nbsp;8,90</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu-tab-panel" id="tab-hartig">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Salades</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Griekse Boerensal</span><span class="menu-item-desc">Tomaat, komkommer, ui, fetakaas, olijven, kappertje, paprika</span></div><span class="menu-item-price">&euro;&nbsp;10,50</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Soep van de dag</h3><p class="menu-section-note">Vanaf 10:00 tot 16:00 &middot; geserveerd met pitabrood</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Soep van de dag</span><span class="menu-item-desc">Zelfgemaakt &mdash; vraag naar de soep van vandaag</span></div><span class="menu-item-price">v.a. &euro;&nbsp;5,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Borrelhapjes</h3><p class="menu-section-note">Vanaf 10:00 tot 16:00</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Grieks Plateau &mdash; 1 persoon</span><span class="menu-item-desc">Tzatziki, pittige smeerkaas, diverse kaas &amp; vleeswaren, zwarte en groene olijven, pitabrood</span></div><span class="menu-item-price">&euro;&nbsp;12,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Grieks Plateau &mdash; 2 personen</span><span class="menu-item-desc">Tzatziki, pittige smeerkaas, diverse kaas &amp; vleeswaren, zwarte en groene olijven, pitabrood</span></div><span class="menu-item-price">&euro;&nbsp;20,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Hartige Bladerdeegspecialiteiten</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tiropita</span><span class="menu-item-desc">Bladerdeeg met fetakaasvulling</span></div><span class="menu-item-price">&euro;&nbsp;3,30 / &euro;&nbsp;5,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Bladerdeeg met Griekse kaas &amp; honing</span><span class="menu-item-desc">Zachte Griekse kaas met honing</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Spanakopita</span><span class="menu-item-desc">Bladerdeeg met spinazievulling</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Bladerdeeg Spinazie &amp; Fetakaas</span><span class="menu-item-desc">Combinatie spinazie en fetakaasvulling</span></div><span class="menu-item-price">&euro;&nbsp;3,30 / &euro;&nbsp;5,50</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu-tab-panel" id="tab-zoet">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Zelfgemaakte Zoetigheden</h3><p class="menu-section-note">Neem gerust een kijkje in de vitrine</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Brownies</span></div><span class="menu-item-price">&euro;&nbsp;3,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Arretjes Cake</span></div><span class="menu-item-price">&euro;&nbsp;2,20</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Mini Lemon Taart</span></div><span class="menu-item-price">&euro;&nbsp;2,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Mini Red Velvet Cake</span></div><span class="menu-item-price">&euro;&nbsp;2,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Baklava / Kadaifi</span><span class="menu-item-desc">Grieks traditioneel zoet gebak</span></div><span class="menu-item-price">&euro;&nbsp;4,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Chocolatina</span><span class="menu-item-desc">Zachte chocolade taart</span></div><span class="menu-item-price">&euro;&nbsp;4,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Oranje Gebakje</span></div><span class="menu-item-price">&euro;&nbsp;2,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Pavlova</span><span class="menu-item-desc">Meringue, verse aardbeien, rood fruit siroop</span></div><span class="menu-item-price">&euro;&nbsp;2,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Taart / Cookies / Cakes van de dag</span><span class="menu-item-desc">Vraag naar het aanbod van vandaag</span></div><span class="menu-item-price">v.a. &euro;&nbsp;2,50</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu-tab-panel" id="tab-dranken">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Koffie</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Koffie</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Espresso</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Cappuccino</span></div><span class="menu-item-price">&euro;&nbsp;3,70</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Flat White</span></div><span class="menu-item-price">&euro;&nbsp;4,70</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Latte Macchiato</span></div><span class="menu-item-price">&euro;&nbsp;4,20</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Aroma Koffie</span><span class="menu-item-desc">Latte macchiato, amaretto syrup, slagroom, gekarameliseerde hazelnoten</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">ICED Coffee</h3><p class="menu-section-note">Met of zonder suiker</p></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Freddo Cappuccino</span></div><span class="menu-item-price">klein &euro;&nbsp;3,70 / groot &euro;&nbsp;5,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Freddo Espresso</span></div><span class="menu-item-price">klein &euro;&nbsp;3,30 / groot &euro;&nbsp;5,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Frappe</span></div><span class="menu-item-price">&euro;&nbsp;4,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Aroma Iced</span><span class="menu-item-desc">Iced cappuccino, amaretto syrup, slagroom, gekarameliseerde hazelnoten</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Thee</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Thee (diverse smaken)</span></div><span class="menu-item-price">&euro;&nbsp;3,10</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Verse Muntthee / Verse Gemberthee</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Verse Griekse Thee</span><span class="menu-item-desc">Diverse smaken</span></div><span class="menu-item-price">&euro;&nbsp;3,60</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Ice Tea</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Chocomel</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Chocomel</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Chocomel met slagroom</span></div><span class="menu-item-price">&euro;&nbsp;4,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Warme Chocomel</span></div><span class="menu-item-price">&euro;&nbsp;3,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Warme Chocomel met slagroom</span></div><span class="menu-item-price">&euro;&nbsp;4,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Aroma Chocomel</span><span class="menu-item-desc">Warme of iced &middot; chocomelk, amaretto syrup, slagroom, gekarameliseerde hazelnoten</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Vruchtensap &amp; Frisdranken</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Verse Jus d&rsquo;Orange</span></div><span class="menu-item-price">&euro;&nbsp;5,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Zelfgemaakte Citroenlimonade</span></div><span class="menu-item-price">&euro;&nbsp;5,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Smoothie Bosvruchten</span></div><span class="menu-item-price">&euro;&nbsp;6,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Cola / Cola Zero</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Sprite Zero / Fanta Orange</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Appelsap / Fristi</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Tonic</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Mineraalwater / Bruisend Water</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Griekse Cassis</span></div><span class="menu-item-price">&euro;&nbsp;3,60</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Extras</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Decaf</span></div><span class="menu-item-price">+&euro;&nbsp;1,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Shot Espresso</span></div><span class="menu-item-price">+&euro;&nbsp;2,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Slagroom</span></div><span class="menu-item-price">+&euro;&nbsp;1,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Vegan Melk</span></div><span class="menu-item-price">+&euro;&nbsp;1,00</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu-tab-panel" id="tab-kids">
+    <div class="menu-tab-content">
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Slok Slok Slok&hellip;</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Verse Jus d&rsquo;Orange</span></div><span class="menu-item-price">&euro;&nbsp;3,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Framboos Limonade</span></div><span class="menu-item-price">&euro;&nbsp;2,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Babyccino</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Iced Babyccino</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Hap Hap Hap&hellip;</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Bakje Gezond met groenten</span></div><span class="menu-item-price">&euro;&nbsp;3,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Kinder Tosti Ham Kaas</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Kinder Griekse Paasbrood</span><span class="menu-item-desc">Met nutella en marshmallows</span></div><span class="menu-item-price">&euro;&nbsp;3,00</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Yoghurt met honing en hagelslag</span></div><span class="menu-item-price">&euro;&nbsp;3,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Bougatsa Custard Taart</span></div><span class="menu-item-price">&euro;&nbsp;2,50</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Mini Kip Gyros</span><span class="menu-item-desc">Met tzatziki, tomaat en uien</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
+        </div>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-header"><h3 class="menu-section-title">Eat Like a Greek Kid</h3></div>
+        <div class="menu-item-list">
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Eat Like a Greek Kid &mdash; Compleet</span><span class="menu-item-desc">Framboos limonade &middot; groentenhapjes &middot; tosti kaas of mini kip gyros &middot; tsoureki met nutella</span></div><span class="menu-item-price">&euro;&nbsp;11,50</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="menu-allergen">
+      <p><strong>Allergieën?</strong> Laat het ons gerust weten, we helpen je graag verder.</p>
+      <p>🌿 vegetarisch &nbsp;&middot;&nbsp; 🌱 veganistisch: geen dierlijke producten &nbsp;&middot;&nbsp; Wifi: <strong>aromalunchroom</strong> &middot; wachtwoord: <strong>aroma2025</strong></p>
+    </div>
 
     <!-- ONTBIJT -->
     <section class="menu-category" id="ontbijt">
@@ -707,32 +900,18 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 </footer>
 
 <script>
-function scrollToSection(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var navH = document.querySelector('.nav').offsetHeight;
-  var catH = document.querySelector('.menu-cat-nav').offsetHeight;
-  window.scrollTo({ top: el.offsetTop - navH - catH - 8, behavior: 'smooth' });
-  document.querySelectorAll('.menu-cat-btn').forEach(function(b) { b.classList.remove('active'); });
-  event.currentTarget.classList.add('active');
-}
-
-// Highlight active cat on scroll
 (function() {
-  var sections = ['ontbijt','pitas','salade','desserts','dranken'];
-  var btns = document.querySelectorAll('.menu-cat-btn');
-  function update() {
-    var navH = document.querySelector('.nav').offsetHeight;
-    var catH = document.querySelector('.menu-cat-nav').offsetHeight;
-    var offset = navH + catH + 32;
-    var active = 0;
-    sections.forEach(function(id, i) {
-      var el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= offset) active = i;
-    });
-    btns.forEach(function(b, i) { b.classList.toggle('active', i === active); });
-  }
-  window.addEventListener('scroll', update, { passive: true });
+  var btns = document.querySelectorAll('.menu-tab-btn');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = this.getAttribute('data-tab');
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.menu-tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      var panel = document.getElementById('tab-' + tab);
+      if (panel) panel.classList.add('active');
+    }.bind(btn));
+  });
 })();
 </script>
 
