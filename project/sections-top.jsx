@@ -1,5 +1,15 @@
 /* global React, Placeholder, PHOTOS */
-import AromaLogo from './AromaLogo';
+
+function AromaLogo({ size = "md" }) {
+  const h = { sm: 36, md: 48, lg: 64 }[size] ?? 48;
+  return (
+    <img
+      src="assets/logo.svg"
+      alt="Aroma Lunchroom"
+      style={{ height: h, width: 'auto', display: 'block' }}
+    />
+  );
+}
 
 const { useState: useStateTop, useEffect: useEffectTop } = React;
 
