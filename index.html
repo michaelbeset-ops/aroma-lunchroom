@@ -137,7 +137,7 @@ h3 { font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2; }
   text-decoration: none; color: inherit;
 }
 .nav-logo-wrap { display: block; width: 56px; height: 56px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: #3f7d38; }
-.nav-brand-logo { width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; display: block; }
+.nav-brand-logo { width: 100%; height: 100%; object-fit: contain; display: block; }
 .nav-brand-sub { display: none; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a {
@@ -703,7 +703,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 <header class="nav" id="nav">
   <a href="#top" class="nav-brand">
     <span class="nav-logo-wrap">
-      <img src="project/assets/logo-horizontal.png" alt="Aroma Lunchroom" class="nav-brand-logo" />
+      <img src="project/assets/logo.svg" alt="Aroma Lunchroom" class="nav-brand-logo" />
     </span>
   </a>
   <nav class="nav-links">
@@ -729,7 +729,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="mobile-menu-top">
     <a href="#top" class="nav-brand" onclick="closeMobileMenu()">
       <span class="nav-logo-wrap">
-        <img src="project/assets/logo-horizontal.png" alt="Aroma Lunchroom" class="nav-brand-logo" />
+        <img src="project/assets/logo.svg" alt="Aroma Lunchroom" class="nav-brand-logo" />
       </span>
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
