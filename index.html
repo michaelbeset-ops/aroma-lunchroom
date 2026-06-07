@@ -543,6 +543,12 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   .insta-strip { grid-template-columns: repeat(3, 1fr); }
 }
 
+@media (min-width: 721px) and (max-width: 1400px) {
+  h1 { font-size: clamp(40px, 5.5vw, 76px); }
+  h2 { font-size: clamp(26px, 3.2vw, 46px); }
+  .hero-full { padding-bottom: 110px; }
+}
+
 @media (max-width: 720px) {
   /* NAV */
   .nav-links, .nav-cta .btn:not(.always-show) { display: none; }
