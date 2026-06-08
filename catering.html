@@ -79,9 +79,12 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
   color: var(--ink);
   padding: 10px var(--pad);
 }
-.nav-brand { display: flex; align-items: center; justify-content: center; text-decoration: none; color: inherit; }
+.nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; }
 .nav-logo-wrap { display: block; width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #3f7d38; position: relative; isolation: isolate; }
 .nav-brand-logo { width: 100%; height: 100%; object-fit: cover; object-position: 48% 42%; display: block; transform: scale(1.65); transform-origin: 48% 42%; }
+.nav-brand-text-wrap { height: 56px; width: 132px; overflow: hidden; flex-shrink: 0; display: block; position: relative; }
+.nav-brand-text { width: 280px; height: auto; position: absolute; top: -63px; left: -64px; }
+.nav.scrolled .nav-brand-text { filter: invert(1) brightness(0.15); }
 .nav-brand-sub { display: none; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { text-decoration: none; font-weight: 500; font-size: 14px; position: relative; padding: 6px 0; }
@@ -105,7 +108,7 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
 /* HERO */
 .catering-hero {
   color: var(--brand-ink);
-  min-height: 60vh;
+  min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
   padding: 0 var(--pad);
   text-align: center;
@@ -114,7 +117,7 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
 }
 .catering-hero-bg {
   position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 80%;
+  width: 100%; height: 100%; object-fit: cover;
   z-index: 0;
 }
 .catering-hero-overlay {
@@ -149,7 +152,7 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
   background: var(--bg-2); border-radius: var(--r-lg); overflow: hidden;
   height: 420px;
 }
-.catering-intro-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+.catering-intro-image img { width: 100%; height: 100%; object-fit: cover; }
 
 /* AANBOD */
 .catering-aanbod { background: var(--bg-2); padding: clamp(64px, 8vw, 100px) 0; }
@@ -262,6 +265,9 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
     <span class="nav-logo-wrap">
       <img src="project/assets/logo-3.png" alt="Aroma Lunchroom" class="nav-brand-logo" />
     </span>
+    <span class="nav-brand-text-wrap">
+      <img src="project/assets/aroma-text.png" alt="AROMA" class="nav-brand-text" />
+    </span>
   </a>
   <nav class="nav-links">
     <a href="index.html">Home</a>
@@ -288,6 +294,9 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
       <span class="nav-logo-wrap">
         <img src="project/assets/logo-3.png" alt="Aroma Lunchroom" class="nav-brand-logo" />
       </span>
+      <span class="nav-brand-text-wrap">
+        <img src="project/assets/aroma-text.png" alt="AROMA" class="nav-brand-text" style="filter:invert(1) brightness(0.15);" />
+      </span>
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
   </div>
@@ -305,7 +314,7 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
 
 <!-- HERO -->
 <section class="catering-hero">
-  <img class="catering-hero-bg" src="project/uploads/catering-hero.jpg" alt="" aria-hidden="true" />
+  <img class="catering-hero-bg" src="Gemini_Generated_Image_bvl5gvbvl5gvbvl5.png" alt="" aria-hidden="true" />
   <div class="catering-hero-overlay"></div>
   <div class="catering-hero-inner">
     <span class="eyebrow">Catering · Aroma Lunchroom</span>
@@ -350,7 +359,7 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
         <a href="mailto:info@aromalunchroom.com" class="btn btn-primary" style="width:fit-content;margin-top:8px">Neem contact op →</a>
       </div>
       <div class="catering-intro-image">
-        <img src="project/uploads/catering-chrysa.jpg" alt="Chrysa bereidt gerechten" loading="lazy" />
+        <img src="project/uploads/catering-new.png" alt="Terras Aroma Lunchroom" loading="lazy" />
       </div>
     </div>
   </div>
