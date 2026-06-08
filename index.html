@@ -581,7 +581,14 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   .hours { grid-template-columns: 1fr; gap: 0; }
 
   /* MENU */
-  .menu-grid { grid-template-columns: 1fr; }
+  .menu-grid {
+    display: flex; overflow-x: auto; gap: 14px;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px; grid-template-columns: unset;
+  }
+  .menu-grid::-webkit-scrollbar { height: 4px; }
+  .menu-grid::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .menu-card { flex: 0 0 260px; scroll-snap-align: start; }
   .menu-card-photo { width: 90px; }
   .menu-card-body { padding: 10px 12px 12px; }
   .menu-card-title { font-size: 15px; }
@@ -592,7 +599,17 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   .gallery-item.span-2r { grid-row: span 1; }
 
   /* REVIEWS */
-  .review-quote { font-size: 15px; line-height: 1.45; }
+  .review-card { flex: 0 0 82vw; }
+  .review-quote {
+    font-size: 15px; line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .review-quote.expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
+  .review-expand-btn {
+    background: none; border: none; padding: 0; margin-top: 6px;
+    font-size: 13px; color: var(--brand); cursor: pointer;
+    font-family: var(--sans); font-weight: 500; display: block;
+  }
   .review-quote::before { font-size: 36px; vertical-align: -14px; }
   .reviews-footer { margin-top: 20px; }
 
@@ -1407,6 +1424,22 @@ document.addEventListener('click', (e) => {
   buildDots();
   goTo(0);
 })();
+</script>
+
+<script>
+// Mobile: expand/collapse review quotes
+if (window.innerWidth <= 720) {
+  document.querySelectorAll('.review-quote').forEach(function(quote) {
+    var btn = document.createElement('button');
+    btn.className = 'review-expand-btn';
+    btn.textContent = 'meer lezen';
+    btn.addEventListener('click', function() {
+      var expanded = quote.classList.toggle('expanded');
+      btn.textContent = expanded ? 'minder' : 'meer lezen';
+    });
+    quote.after(btn);
+  });
+}
 </script>
 
 <!-- COOKIE BANNER -->
