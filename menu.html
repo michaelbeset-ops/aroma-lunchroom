@@ -107,6 +107,29 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 }
 .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- LANGUAGE SWITCHER ---------- */
+.lang-switch { display: flex; align-items: center; gap: 5px; margin-right: 4px; }
+.lang-sep { font-family: var(--mono); font-size: 10px; opacity: 0.3; user-select: none; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: inherit; opacity: 0.45; padding: 2px 0;
+  border-bottom: 1.5px solid transparent; transition: opacity .15s, border-color .15s;
+}
+.lang-btn:hover { opacity: 0.8; }
+.lang-btn.active { opacity: 1; border-bottom-color: currentColor; }
+.mobile-lang-switch {
+  display: flex; gap: 16px; padding: 14px 0; margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.mobile-lang-switch .lang-btn {
+  font-size: 13px; letter-spacing: 0.1em; opacity: 0.45; color: var(--ink);
+  border-bottom-color: transparent;
+}
+.mobile-lang-switch .lang-btn.active { opacity: 1; border-bottom-color: var(--brand); }
+@media (max-width: 720px) { .lang-switch { display: none; } }
+
 .nav-hamburger {
   display: none; width: 40px; height: 40px;
   border: 1px solid currentColor; background: transparent;
@@ -276,14 +299,21 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
     <a href="index.html">Home</a>
     <a href="menu.html" class="active">Menu</a>
     <a href="catering.html">Catering</a>
-    <a href="index.html#sfeer">Sfeer</a>
-    <a href="index.html#over">Over ons</a>
+    <a href="index.html#sfeer" data-i18n="nav.sfeer">Sfeer</a>
+    <a href="index.html#over" data-i18n="nav.over">Over ons</a>
   </nav>
   <div class="nav-cta">
     <span style="position:relative;display:inline-flex;flex-shrink:0;">
       <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;padding-right:28px;">Online bestellen</a>
       <span style="position:absolute;top:-7px;right:-4px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.04em;padding:2px 5px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
     </span>
+    <div class="lang-switch" aria-label="Taal kiezen">
+    <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+  </div>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span>
     </button>
@@ -300,6 +330,11 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
       <img src="project/assets/aroma-text.png" alt="AROMA" class="nav-brand-text" />
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
+  </div>
+  <div class="mobile-lang-switch">
+    <button class="lang-btn" data-lang="nl">NL</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
   </div>
   <div class="mobile-menu-links">
     <a href="index.html">Home</a>
@@ -319,7 +354,7 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
   <div class="menu-hero-overlay"></div>
   <div class="menu-hero-content">
     <h1>Ons menu</h1>
-    <p>Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts — eerlijke prijzen, echte smaken.</p>
+    <p data-i18n="menupage.p">Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts — eerlijke prijzen, echte smaken.</p>
     <div class="menu-hero-meta">
       <div>Geopend <span>Ma–Za 08:00–17:00</span></div>
       <div>Adres <span>Arkelstraat 33, Gorinchem</span></div>
@@ -332,12 +367,12 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 <div class="menu-content">
   <div class="wrap">
     <div class="menu-tabs" role="tablist">
-      <button class="menu-tab-btn active" data-tab="ontbijt" role="tab">Ontbijt</button>
-      <button class="menu-tab-btn" data-tab="pitas" role="tab">Pita&#x27;s &amp; Lunch</button>
-      <button class="menu-tab-btn" data-tab="salades" role="tab">Salades</button>
-      <button class="menu-tab-btn" data-tab="desserts" role="tab">Hartig &amp; Desserts</button>
-      <button class="menu-tab-btn" data-tab="dranken" role="tab">Koffie &amp; Dranken</button>
-      <button class="menu-tab-btn" data-tab="kids" role="tab">Kids</button>
+      <button class="menu-tab-btn active" data-tab="ontbijt" role="tab" data-i18n="tab.ontbijt">Ontbijt</button>
+      <button class="menu-tab-btn" data-tab="pitas" role="tab" data-i18n="tab.pitas">Pita&#x27;s &amp; Lunch</button>
+      <button class="menu-tab-btn" data-tab="salades" role="tab" data-i18n="tab.salades">Salades</button>
+      <button class="menu-tab-btn" data-tab="desserts" role="tab" data-i18n="tab.hartig">Hartig &amp; Desserts</button>
+      <button class="menu-tab-btn" data-tab="dranken" role="tab" data-i18n="tab.dranken">Koffie &amp; Dranken</button>
+      <button class="menu-tab-btn" data-tab="kids" role="tab" data-i18n="tab.kids">Kids</button>
     </div>
     <div class="menu-tab-panels">
 
@@ -653,13 +688,13 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding">
   <div class="cookie-banner-text">
-    <strong>Wij gebruiken cookies</strong><br />
-    We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.
-    <a href="cookies.html">Meer informatie</a>
+    <strong data-i18n="cookie.title">Wij gebruiken cookies</strong><br />
+    <span data-i18n="cookie.text">We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.</span>
+    <a href="cookies.html" data-i18n="cookie.more">Meer informatie</a>
   </div>
   <div class="cookie-banner-btns">
-    <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accepteren</button>
-    <button class="cookie-btn cookie-btn-decline" id="cookie-decline">Alleen noodzakelijk</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookie-accept" data-i18n="cookie.accept">Accepteren</button>
+    <button class="cookie-btn cookie-btn-decline" id="cookie-decline" data-i18n="cookie.decline">Alleen noodzakelijk</button>
   </div>
 </div>
 <script>
@@ -672,5 +707,6 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
   document.getElementById('cookie-decline').addEventListener('click',function(){dismiss('declined');});
 })();
 </script>
+<script src="project/assets/i18n.js"></script>
 </body>
 </html>

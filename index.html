@@ -156,6 +156,30 @@ h3 { font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2; }
 }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- LANGUAGE SWITCHER ---------- */
+.lang-switch { display: flex; align-items: center; gap: 5px; margin-right: 4px; }
+.lang-sep { font-family: var(--mono); font-size: 10px; opacity: 0.3; user-select: none; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: inherit; opacity: 0.45; padding: 2px 0;
+  border-bottom: 1.5px solid transparent; transition: opacity .15s, border-color .15s;
+}
+.lang-btn:hover { opacity: 0.8; }
+.lang-btn.active { opacity: 1; border-bottom-color: currentColor; }
+/* Mobile lang in mobile-menu */
+.mobile-lang-switch {
+  display: flex; gap: 16px; padding: 14px 0; margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.mobile-lang-switch .lang-btn {
+  font-size: 13px; letter-spacing: 0.1em; opacity: 0.45; color: var(--ink);
+  border-bottom-color: transparent;
+}
+.mobile-lang-switch .lang-btn.active { opacity: 1; border-bottom-color: var(--brand); }
+@media (max-width: 720px) { .lang-switch { display: none; } }
+
 .nav-hamburger {
   display: none;
   width: 40px; height: 40px;
@@ -742,14 +766,21 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
     <a href="catering.html">Catering</a>
-    <a href="#sfeer">Sfeer</a>
-    <a href="#over">Over ons</a>
+    <a href="#sfeer" data-i18n="nav.sfeer">Sfeer</a>
+    <a href="#over" data-i18n="nav.over">Over ons</a>
   </nav>
   <div class="nav-cta">
     <span style="position:relative;display:inline-flex;flex-shrink:0;">
-      <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;padding-right:28px;">Online bestellen</a>
-      <span style="position:absolute;top:-7px;right:-4px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.04em;padding:2px 5px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
+      <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;padding-right:28px;"><span data-i18n="nav.order">Online bestellen</span></a>
+      <span style="position:absolute;top:-7px;right:-4px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.04em;padding:2px 5px;border-radius:20px;white-space:nowrap;line-height:1.4;"><span data-i18n="nav.soon">binnenkort</span></span>
     </span>
+    <div class="lang-switch" aria-label="Taal kiezen">
+    <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+  </div>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span>
     </button>
@@ -767,15 +798,20 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
   </div>
+  <div class="mobile-lang-switch" aria-label="Taal kiezen">
+    <button class="lang-btn" data-lang="nl">NL</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
+  </div>
   <div class="mobile-menu-links">
     <a href="index.html" onclick="closeMobileMenu()">Home</a>
     <a href="menu.html">Menu</a>
     <a href="catering.html">Catering</a>
-    <a href="#sfeer" onclick="closeMobileMenu()">Sfeer</a>
-    <a href="#over" onclick="closeMobileMenu()">Over ons</a>
+    <a href="#sfeer" data-i18n="nav.sfeer" onclick="closeMobileMenu()">Sfeer</a>
+    <a href="#over" data-i18n="nav.over" onclick="closeMobileMenu()">Over ons</a>
   </div>
   <div class="mobile-menu-foot">
-    <a href="#reserveer" class="btn btn-primary" style="width:100%;justify-content:center" onclick="closeMobileMenu()">Reserveer een tafel</a>
+    <a href="#reserveer" class="btn btn-primary" style="width:100%;justify-content:center" onclick="closeMobileMenu()"><span data-i18n="nav.reserve">Reserveer een tafel</span></a>
   </div>
 </div>
 
@@ -790,28 +826,26 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   </div>
   <div class="hero-content">
     <h1>
-      De geur van<br>Griekenland in<br>Hartje Gorcum.
+      <span data-i18n-html="hero.tagline.html">De geur van<br>Griekenland in<br>Hartje Gorcum.</span>
       <span class="en">Coffee · Homemade food · Music</span>
     </h1>
-    <p class="hero-sub">
-      Zelfgemaakt Grieks ontbijt, verse lunch en koffie die je goed doet — elke dag met liefde klaargemaakt door Chrysa. Trek gewoon binnen.
-    </p>
+    <p class="hero-sub" data-i18n="hero.sub">Zelfgemaakt Grieks ontbijt, verse lunch en koffie die je goed doet — elke dag met liefde klaargemaakt door Chrysa. Trek gewoon binnen.</p>
     <div class="hero-cta-row">
-      <a href="menu.html" class="btn btn-primary">Menu bekijken →</a>
+      <a href="menu.html" class="btn btn-primary" data-i18n="hero.cta">Menu bekijken →</a>
     </div>
   </div>
   <div class="hero-bottom">
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <span class="label">Geopend</span>
+        <span class="label" data-i18n="hero.label.open">Geopend</span>
         <span class="val">Ma–Za · 08:00 — 17:00</span>
       </div>
       <div class="hero-meta-item">
-        <span class="label">Adres</span>
+        <span class="label" data-i18n="hero.label.address">Adres</span>
         <span class="val">Arkelstraat 33, Gorinchem</span>
       </div>
       <div class="hero-meta-item">
-        <span class="label">Reviews</span>
+        <span class="label" data-i18n="hero.label.reviews">Reviews</span>
         <span class="val">★ 5,0 · 33 Google reviews</span>
       </div>
     </div>
@@ -834,25 +868,20 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         />
       </div>
       <div class="over-text">
-        <span class="eyebrow">Over Aroma</span>
+        <span class="eyebrow" data-i18n="over.eyebrow">Over Aroma</span>
         <h2>
-          Een gastvrije plek<br>waar je je thuis voelt.
+          <span data-i18n-html="over.h2.html">Een gastvrije plek<br>waar je je thuis voelt.</span>
           <span class="en">A little piece of Greece, made with love.</span>
         </h2>
         <p>
-          Aroma is de nieuwe ontbijt-, koffie- en lunchspot van Chrysa. Geboren in Griekenland,
-          inmiddels vijf jaar in Nederland en nu samen met haar partner en twee dochters
-          neergestreken in onze binnenstad.
+          <span data-i18n="over.p1">Aroma is de nieuwe ontbijt-, koffie- en lunchspot van Chrysa. Geboren in Griekenland, inmiddels vijf jaar in Nederland en nu samen met haar partner en twee dochters neergestreken in onze binnenstad.</span>
         </p>
         <p>
-          Chrysa werkt zoveel mogelijk met Griekse ingrediënten: extra vierge olijfolie uit eigen
-          productie, honing, yoghurt, Griekse kazen en nog veel meer. Op de kaart staan
-          vegetarische en vegan opties, halal keuzes en genoeg lekkers voor kinderen.
-          De zaak is kind- én hondvriendelijk — kom gerust met het hele gezin langs!
+          <span data-i18n="over.p2">Chrysa werkt zoveel mogelijk met Griekse ingrediënten: extra vierge olijfolie uit eigen productie, honing, yoghurt, Griekse kazen en nog veel meer. Op de kaart staan vegetarische en vegan opties, halal keuzes en genoeg lekkers voor kinderen. De zaak is kind- én hondvriendelijk — kom gerust met het hele gezin langs!</span>
         </p>
         <div class="over-signature">
           <span>— Chrysa</span>
-          <span class="name-label">Eigenaar · Founder</span>
+          <span class="name-label" data-i18n="over.founder">Eigenaar · Founder</span>
         </div>
         <div class="hours" id="hours-grid">
           <!-- Filled by JS to highlight today -->
@@ -867,12 +896,11 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Menu Highlights</span>
-        <h2 style="margin-top:14px">Zes favorieten,<br>elke ochtend vers gemaakt.</h2>
+        <span class="eyebrow" data-i18n="menu.eyebrow">Menu Highlights</span>
+        <h2 style="margin-top:14px" data-i18n-html="menu.h2.html">Zes favorieten,<br>elke ochtend vers gemaakt.</h2>
       </div>
       <p class="lead">
-        Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert &mdash;
-        Grieks zoals het hoort.
+        <span data-i18n="menu.lead">Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert — Grieks zoals het hoort.</span>
       </p>
     </div>
     <div class="menu-grid">
@@ -969,7 +997,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 
     </div>
     <div class="menu-footer">
-      <a href="menu.html" class="btn btn-primary">Bekijk het volledige menu &rarr;</a>
+      <a href="menu.html" class="btn btn-primary" data-i18n="menu.cta">Bekijk het volledige menu →</a>
     </div>
   </div>
 </section>
@@ -980,12 +1008,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="wrap">
     <div class="gallery-layout">
       <div class="gallery-text">
-        <span class="eyebrow">Sfeer · Atmosphere</span>
-        <h2 style="margin-top:8px">Sfeer</h2>
+        <span class="eyebrow" data-i18n="gallery.eyebrow">Sfeer · Atmosphere</span>
+        <h2 style="margin-top:8px" data-i18n="gallery.h2">Sfeer</h2>
         <p class="lead">
-          Grieks eten is een viering van het leven. Verse ingrediënten, echte gastvrijheid en gerechten
-          die met liefde worden bereid — elke dag opnieuw. Wij maken het grootste deel van ons aanbod
-          zelf, met de beste Griekse producten. Trek gewoon binnen en voel je welkom.
+          <span data-i18n="gallery.lead">Grieks eten is een viering van het leven. Verse ingrediënten, echte gastvrijheid en gerechten die met liefde worden bereid — elke dag opnieuw. Wij maken het grootste deel van ons aanbod zelf, met de beste Griekse producten. Trek gewoon binnen en voel je welkom.</span>
         </p>
       </div>
       <div class="gallery-grid">
@@ -1020,13 +1046,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Wat gasten zeggen</span>
-        <h2 style="margin-top:14px">
-          ★ 5,0 op Google.<br>
-          <span style="color:var(--ink-3);font-size:0.6em">33 reviews — en groeiende.</span>
-        </h2>
+        <span class="eyebrow" data-i18n="reviews.eyebrow">Wat gasten zeggen</span>
+        <h2 style="margin-top:14px" data-i18n-html="reviews.h2.html">★ 5,0 op Google.<br><span style="color:var(--ink-3);font-size:0.6em">33 reviews — en groeiende.</span></h2>
       </div>
-      <p class="lead">Echte reacties van gasten die langs zijn geweest. Kom je ook proeven?</p>
+      <p class="lead" data-i18n="reviews.lead">Echte reacties van gasten die langs zijn geweest. Kom je ook proeven?</p>
     </div>
 
     <div class="reviews-carousel-outer" id="reviews-carousel-outer">
@@ -1154,7 +1177,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     </div>
 
     <div class="reviews-footer">
-      <strong>5,0 / 5</strong> op Google · gebaseerd op 33 reviews
+      <span data-i18n-html="reviews.footer.html"><strong>5,0 / 5</strong> op Google · gebaseerd op 33 reviews</span>
     </div>
   </div>
 </section>
@@ -1164,12 +1187,11 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Locatie &amp; Contact</span>
-        <h2 style="margin-top:14px">Plan je bezoek.</h2>
+        <span class="eyebrow" data-i18n="loc.eyebrow">Locatie &amp; Contact</span>
+        <h2 style="margin-top:14px" data-i18n="loc.h2">Plan je bezoek.</h2>
       </div>
       <p class="lead">
-        We zitten in de Arkelstraat — een steenworp van het centrum van Gorinchem.
-        Parkeren in de buurt, terras voor de deur.
+        <span data-i18n="loc.lead">We zitten in de Arkelstraat — een steenworp van het centrum van Gorinchem. Parkeren in de buurt, terras voor de deur.</span>
       </p>
     </div>
     <div class="location-grid">
@@ -1189,20 +1211,20 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <div class="location-info" id="reserveer">
         <h2 style="font-size:34px;margin-bottom:8px">Aroma Lunchroom</h2>
         <p style="color:var(--ink-2);margin-bottom:20px">
-          <span class="open-dot">Nu geopend</span>
-          <span style="color:var(--ink-3)"> · Sluit om 17:00</span>
+          <span class="open-dot" data-i18n="loc.open">Nu geopend</span>
+          <span style="color:var(--ink-3)"><span data-i18n="loc.closes">· Sluit om 17:00</span></span>
         </p>
         <div class="contact-list">
           <div class="contact-row">
-            <span class="contact-label">Adres</span>
+            <span class="contact-label" data-i18n="loc.label.adres">Adres</span>
             <span class="contact-val">Arkelstraat 33, 4201 KA Gorinchem</span>
           </div>
           <div class="contact-row">
-            <span class="contact-label">E-mail</span>
+            <span class="contact-label" data-i18n="loc.label.email">E-mail</span>
             <span class="contact-val"><a href="mailto:info@aromalunchroom.com">Info@aromalunchroom.com</a></span>
           </div>
           <div class="contact-row">
-            <span class="contact-label">Openingstijden</span>
+            <span class="contact-label" data-i18n="loc.label.hours">Openingstijden</span>
             <span class="contact-val hours-mini">
               Ma–Vr&nbsp;&nbsp;08:00 — 17:00<br>
               Zaterdag&nbsp;&nbsp;08:00 — 17:00<br>
@@ -1210,13 +1232,13 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
             </span>
           </div>
           <div class="contact-row">
-            <span class="contact-label">Goed om te weten</span>
+            <span class="contact-label" data-i18n="loc.label.info">Goed om te weten</span>
             <span class="contact-val" style="font-size:14px;color:var(--ink-2)">
-              Wifi · Kindermenu · Honden welkom · Terras · Speelhoek · Halal opties · Vegan opties
+              <span data-i18n="loc.info">Wifi · Kindermenu · Honden welkom · Terras · Speelhoek · Halal opties · Vegan opties</span>
             </span>
           </div>
           <div class="contact-row">
-            <span class="contact-label">Parkeren</span>
+            <span class="contact-label" data-i18n="loc.label.parking">Parkeren</span>
             <span class="contact-val" style="font-size:14px;color:var(--ink-2)">
               Parkeergarage Grote Markt (3 min. lopen) ·
               Straatparkeren Arkelstraat (betaald, max 2 uur) ·
@@ -1241,7 +1263,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         </div>
 
         <div class="location-cta">
-          <a href="mailto:info@aromalunchroom.com" class="btn btn-primary">Mail om te reserveren →</a>
+          <a href="mailto:info@aromalunchroom.com" class="btn btn-primary" data-i18n="loc.cta">Mail om te reserveren →</a>
         </div>
       </div>
     </div>
@@ -1319,9 +1341,9 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="footer-bottom">
       <span>© 2026 Aroma Lunchroom · KVK 96809957</span>
       <div class="footer-bottom-links">
-        <a href="privacy.html">Privacy</a>
-        <a href="cookies.html">Cookies</a>
-        <a href="algemene-voorwaarden.html">Algemene voorwaarden</a>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacybeleid</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookiebeleid</a>
+        <a href="algemene-voorwaarden.html" data-i18n="footer.terms">Algemene voorwaarden</a>
         <a href="https://sitefront.nl" target="_blank" rel="noopener" style="opacity:0.6;">Designed by Sitefront</a>
       </div>
     </div>
@@ -1460,14 +1482,14 @@ if (window.innerWidth <= 720) {
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding" aria-live="polite">
   <div class="cookie-banner-text">
-    <strong>Wij gebruiken cookies</strong><br />
+    <strong data-i18n="cookie.title">Wij gebruiken cookies</strong><br />
     We plaatsen functionele cookies (altijd actief) en optionele analytische cookies
     om onze website te verbeteren. Kies hieronder uw voorkeur.
-    <a href="cookies.html">Meer informatie</a>
+    <a href="cookies.html" data-i18n="cookie.more">Meer informatie</a>
   </div>
   <div class="cookie-banner-btns">
     <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Alles accepteren</button>
-    <button class="cookie-btn cookie-btn-decline" id="cookie-decline">Alleen noodzakelijk</button>
+    <button class="cookie-btn cookie-btn-decline" id="cookie-decline" data-i18n="cookie.decline">Alleen noodzakelijk</button>
   </div>
 </div>
 
@@ -1504,5 +1526,6 @@ if (window.innerWidth <= 720) {
   });
 })();
 </script>
+<script src="project/assets/i18n.js"></script>
 </body>
 </html>

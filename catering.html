@@ -92,6 +92,29 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
 .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- LANGUAGE SWITCHER ---------- */
+.lang-switch { display: flex; align-items: center; gap: 5px; margin-right: 4px; }
+.lang-sep { font-family: var(--mono); font-size: 10px; opacity: 0.3; user-select: none; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: inherit; opacity: 0.45; padding: 2px 0;
+  border-bottom: 1.5px solid transparent; transition: opacity .15s, border-color .15s;
+}
+.lang-btn:hover { opacity: 0.8; }
+.lang-btn.active { opacity: 1; border-bottom-color: currentColor; }
+.mobile-lang-switch {
+  display: flex; gap: 16px; padding: 14px 0; margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.mobile-lang-switch .lang-btn {
+  font-size: 13px; letter-spacing: 0.1em; opacity: 0.45; color: var(--ink);
+  border-bottom-color: transparent;
+}
+.mobile-lang-switch .lang-btn.active { opacity: 1; border-bottom-color: var(--brand); }
+@media (max-width: 720px) { .lang-switch { display: none; } }
+
 .nav-hamburger { display: none; width: 40px; height: 40px; border: 1px solid currentColor; background: transparent; border-radius: 50%; align-items: center; justify-content: center; color: inherit; }
 .nav-hamburger-icon { display: block; width: 16px; height: 1.5px; background: currentColor; position: relative; }
 .nav-hamburger-icon::before, .nav-hamburger-icon::after { content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: currentColor; }
@@ -301,6 +324,13 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
       <a href="menu.html" class="btn btn-primary always-show" style="pointer-events:none;opacity:0.7;cursor:default;padding-right:28px;">Online bestellen</a>
       <span style="position:absolute;top:-7px;right:-4px;background:var(--accent);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.04em;padding:2px 5px;border-radius:20px;white-space:nowrap;line-height:1.4;">binnenkort</span>
     </span>
+    <div class="lang-switch" aria-label="Taal kiezen">
+    <button class="lang-btn" data-lang="nl" aria-pressed="true">NL</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+  </div>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
       <span class="nav-hamburger-icon"></span>
     </button>
@@ -316,6 +346,11 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
       </span>
     </a>
     <button class="mobile-close" id="mobile-close-btn" aria-label="Sluit menu">&#x2715;</button>
+  </div>
+  <div class="mobile-lang-switch">
+    <button class="lang-btn" data-lang="nl">NL</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
   </div>
   <div class="mobile-menu-links">
     <a href="index.html" onclick="closeMobileMenu()">Home</a>
@@ -334,11 +369,11 @@ h3 { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.2; }
   <img class="catering-hero-bg" src="project/uploads/catering-hero-20.webp" alt="" aria-hidden="true" />
   <div class="catering-hero-overlay"></div>
   <div class="catering-hero-inner">
-    <span class="eyebrow">Catering · Aroma Lunchroom</span>
-    <h1>Met liefde bereid.</h1>
+    <span class="eyebrow" data-i18n="cat.eyebrow">Catering · Aroma Lunchroom</span>
+    <h1 data-i18n="cat.h1">Met liefde bereid.</h1>
     <p>
       Heb je iets te vieren? Of organiseer je een bedrijfslunch, vergadering of event?
-      Wij zorgen voor een aanbod dat iedereen zal verrassen!
+      <span data-i18n="cat.p">Of het nu gaat om een zakelijke lunch, een verjaardag of een bedrijfsevent — Chrysa maakt het klaar. Wij zorgen voor een aanbod dat iedereen zal verrassen!</span>
     </p>
     <div class="catering-hero-badges">
       <span class="catering-badge">
@@ -546,13 +581,13 @@ document.getElementById('mobile-close-btn').addEventListener('click', closeMobil
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding">
   <div class="cookie-banner-text">
-    <strong>Wij gebruiken cookies</strong><br />
-    We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.
-    <a href="cookies.html">Meer informatie</a>
+    <strong data-i18n="cookie.title">Wij gebruiken cookies</strong><br />
+    <span data-i18n="cookie.text">We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.</span>
+    <a href="cookies.html" data-i18n="cookie.more">Meer informatie</a>
   </div>
   <div class="cookie-banner-btns">
-    <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accepteren</button>
-    <button class="cookie-btn cookie-btn-decline" id="cookie-decline">Alleen noodzakelijk</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookie-accept" data-i18n="cookie.accept">Accepteren</button>
+    <button class="cookie-btn cookie-btn-decline" id="cookie-decline" data-i18n="cookie.decline">Alleen noodzakelijk</button>
   </div>
 </div>
 <script>
@@ -565,5 +600,6 @@ document.getElementById('mobile-close-btn').addEventListener('click', closeMobil
   document.getElementById('cookie-decline').addEventListener('click',function(){dismiss('declined');});
 })();
 </script>
+<script src="project/assets/i18n.js"></script>
 </body>
 </html>
