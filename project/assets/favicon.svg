@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#3f7d38"/>
+  <!-- Stylised 'A' as path – clean at any size -->
+  <path d="M16 5 L24.5 26 H20.8 L18.9 21 H13.1 L11.2 26 H7.5 Z M16 10.5 L14.2 18.2 H17.8 Z" fill="#f6efe1"/>
+</svg>
