@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Menu — Aroma Lunchroom Gorinchem</title>
+<title>Menu | Aroma Lunchroom Gorinchem</title>
 <link rel="icon" href="project/assets/favicon.ico" sizes="32x32" />
 <link rel="icon" href="project/assets/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="project/assets/apple-touch-icon.png" />
@@ -139,11 +139,13 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 .menu-allergen { margin-top:52px; padding:18px 22px; background:var(--bg-2); border-radius:var(--r-md); border:1px solid var(--line); font-size:13px; color:var(--ink-2); line-height:1.6; }
 .menu-allergen p { margin:0 0 4px; }
 .menu-allergen p:last-child { margin-bottom:0; }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   /* Tabs als horizontaal scrollbare strip in plaats van drie regels */
   .menu-tabs { flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 calc(-1 * var(--pad)) 32px; padding:0 var(--pad); }
   .menu-tabs::-webkit-scrollbar { display:none; }
   .menu-tab-btn { padding:11px 14px; font-size:11px; scroll-snap-align:start; flex-shrink:0; }
+}
+@media (max-width: 600px) {
   .menu-tab-content { grid-template-columns:1fr; gap:32px; }
 }
 
@@ -275,7 +277,7 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
   <div class="menu-hero-overlay"></div>
   <div class="menu-hero-content">
     <h1>Ons menu</h1>
-    <p data-i18n="menupage.p">Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts — eerlijke prijzen, echte smaken.</p>
+    <p data-i18n="menupage.p">Alles vers en zelfgemaakt. Van Grieks ontbijt tot huisgemaakte desserts. Eerlijke prijzen, echte smaken.</p>
     <div class="menu-hero-meta">
       <div>Geopend <span>Ma–Za 08:00–17:00</span></div>
       <div>Adres <span>Arkelstraat 33, Gorinchem</span></div>
@@ -464,7 +466,7 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
       <div class="menu-section">
         <div class="menu-section-header"><h3 class="menu-section-title" data-i18n="ms.thee">Thee</h3></div>
         <div class="menu-item-list">
-          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name" data-i18n="mi.thee-smaken">Thee — Diverse Smaken</span></div><span class="menu-item-price">&euro;&nbsp;3,10</span></div>
+          <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name" data-i18n="mi.thee-smaken">Thee, diverse smaken</span></div><span class="menu-item-price">&euro;&nbsp;3,10</span></div>
           <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name" data-i18n="mi.muntthee-gemberthee">Verse Muntthee / Verse Gemberthee</span></div><span class="menu-item-price">&euro;&nbsp;4,00</span></div>
           <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name" data-i18n="mi.griekse-thee">Verse Griekse Thee</span><span class="menu-item-desc" data-i18n="md.thee-smaken">Diverse smaken</span></div><span class="menu-item-price">&euro;&nbsp;3,60</span></div>
           <div class="menu-item-row"><div class="menu-item-main"><span class="menu-item-name">Ice Tea</span></div><span class="menu-item-price">&euro;&nbsp;3,30</span></div>

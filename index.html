@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aroma Lunchroom — Hartje Gorcum</title>
+<title>Aroma Lunchroom | Hartje Gorcum</title>
 <link rel="icon" href="project/assets/favicon.ico" sizes="32x32" />
 <link rel="icon" href="project/assets/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="project/assets/apple-touch-icon.png" />
@@ -240,7 +240,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 }
 .hours-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 4px 0; }
 .hours-item .day { font-weight: 600; font-size: 14px; }
-.hours-item .time { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.hours-item .time { font-family: var(--mono); font-size: 13px; color: var(--ink-2); white-space: nowrap; }
 .hours-item.closed .time { color: var(--ink-3); }
 .hours-item.today { color: var(--brand); }
 .hours-item.today .day::before { content: "●"; color: var(--accent); margin-right: 6px; font-size: 10px; vertical-align: middle; }
@@ -441,6 +441,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .hours { grid-template-columns: 1fr; gap: 0; }
+  .review-card { flex: 0 0 calc((100% - 24px) / 2); }
 .location-grid { grid-template-columns: 1fr; }
   .location-map { min-height: 360px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -491,10 +493,11 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   }
   .menu-grid::-webkit-scrollbar { height: 4px; }
   .menu-grid::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
-  .menu-card { flex: 0 0 260px; scroll-snap-align: start; }
-  .menu-card-photo { width: 90px; }
-  .menu-card-body { padding: 10px 12px 12px; }
-  .menu-card-title { font-size: 15px; }
+  .menu-card { flex: 0 0 min(76vw, 300px); scroll-snap-align: start; flex-direction: column; }
+  .menu-card-photo { width: 100%; height: 180px; flex: 0 0 180px; align-self: auto; }
+  .menu-card-body { padding: 14px 16px 16px; }
+  .menu-card-title { font-size: 17px; }
+  .menu-card-desc { font-size: 13.5px; }
 
   /* GALLERY */
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -507,9 +510,9 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   }
   .review-quote.expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
   .review-expand-btn {
-    background: none; border: none; padding: 0; margin-top: 6px;
-    font-size: 13px; color: var(--brand); cursor: pointer;
-    font-family: var(--sans); font-weight: 500; display: block;
+    background: none; border: none; padding: 0; margin-top: -6px;
+    font-size: 13px; color: var(--brand); cursor: pointer; text-align: left;
+    font-family: var(--sans); font-weight: 600; display: block; align-self: flex-start;
   }
   .review-quote::before { font-size: 36px; vertical-align: -14px; }
   .reviews-footer { margin-top: 20px; }
@@ -686,7 +689,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   <div class="hero-media">
     <img
       src="project/uploads/hero-aroma37.webp"
-      alt="Aroma Lunchroom interieur — groene tafels, kunst aan de muur"
+      alt="Aroma Lunchroom interieur met groene tafels en kunst aan de muur"
       loading="eager"
     />
   </div>
@@ -695,7 +698,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <span data-i18n-html="hero.tagline.html">De geur van<br>Griekenland in<br>Hartje Gorcum.</span>
       <span class="en">Coffee · Homemade food · Music</span>
     </h1>
-    <p class="hero-sub" data-i18n="hero.sub">Zelfgemaakt Grieks ontbijt, verse lunch en koffie die je goed doet — elke dag met liefde klaargemaakt door Chrysa. Trek gewoon binnen.</p>
+    <p class="hero-sub" data-i18n="hero.sub">Zelfgemaakt Grieks ontbijt, verse lunch en koffie die je goed doet. Elke dag met liefde klaargemaakt door Chrysa. Trek gewoon binnen.</p>
     <div class="hero-cta-row">
       <a href="menu.html" class="btn btn-primary" data-i18n="hero.cta">Menu bekijken →</a>
     </div>
@@ -704,7 +707,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="label" data-i18n="hero.label.open">Geopend</span>
-        <span class="val">Ma–Za · 08:00 — 17:00</span>
+        <span class="val">Ma–Za · 08:00–17:00</span>
       </div>
       <div class="hero-meta-item">
         <span class="label" data-i18n="hero.label.address">Adres</span>
@@ -743,10 +746,10 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <span data-i18n="over.p1">Aroma is de nieuwe ontbijt-, koffie- en lunchspot van Chrysa. Geboren in Griekenland, inmiddels vijf jaar in Nederland en nu samen met haar partner en twee dochters neergestreken in onze binnenstad.</span>
         </p>
         <p>
-          <span data-i18n="over.p2">Chrysa werkt zoveel mogelijk met Griekse ingrediënten: extra vierge olijfolie uit eigen productie, honing, yoghurt, Griekse kazen en nog veel meer. Op de kaart staan vegetarische en vegan opties, halal keuzes en genoeg lekkers voor kinderen. De zaak is kind- én hondvriendelijk — kom gerust met het hele gezin langs!</span>
+          <span data-i18n="over.p2">Chrysa werkt zoveel mogelijk met Griekse ingrediënten: extra vierge olijfolie uit eigen productie, honing, yoghurt, Griekse kazen en nog veel meer. Op de kaart staan vegetarische en vegan opties, halal keuzes en genoeg lekkers voor kinderen. De zaak is kind- én hondvriendelijk, dus kom gerust met het hele gezin langs!</span>
         </p>
         <div class="over-signature">
-          <span>— Chrysa</span>
+          <span>Chrysa</span>
           <span class="name-label" data-i18n="over.founder">Eigenaar · Founder</span>
         </div>
         <div class="hours" id="hours-grid">
@@ -766,7 +769,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <h2 style="margin-top:14px" data-i18n-html="menu.h2.html">Zes favorieten,<br>elke ochtend vers gemaakt.</h2>
       </div>
       <p class="lead">
-        <span data-i18n="menu.lead">Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert — Grieks zoals het hoort.</span>
+        <span data-i18n="menu.lead">Een kleine kaart, eerlijke prijzen en alles zelfgemaakt. Van ontbijt tot dessert, Grieks zoals het hoort.</span>
       </p>
     </div>
     <div class="menu-grid">
@@ -826,7 +829,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
             <h3 class="menu-card-title">Spanakopita</h3>
             <span class="menu-card-price">&euro;&nbsp;4,00</span>
           </div>
-          <p class="menu-card-desc" data-i18n="card.spanakopita.desc">Bladerdeeg met spinazievulling — zoals oma het maakte.</p>
+          <p class="menu-card-desc" data-i18n="card.spanakopita.desc">Bladerdeeg met spinazievulling, zoals oma het maakte.</p>
           <div class="menu-card-tags"><span class="menu-tag veg">Veg</span></div>
         </div>
       </article>
@@ -877,7 +880,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <span class="eyebrow" data-i18n="gallery.eyebrow">Sfeer · Atmosphere</span>
         <h2 style="margin-top:8px" data-i18n="gallery.h2">Sfeer</h2>
         <p class="lead">
-          <span data-i18n="gallery.lead">Grieks eten is een viering van het leven. Verse ingrediënten, echte gastvrijheid en gerechten die met liefde worden bereid — elke dag opnieuw. Wij maken het grootste deel van ons aanbod zelf, met de beste Griekse producten. Trek gewoon binnen en voel je welkom.</span>
+          <span data-i18n="gallery.lead">Grieks eten is een viering van het leven. Verse ingrediënten, echte gastvrijheid en gerechten die met liefde worden bereid, elke dag opnieuw. Wij maken het grootste deel van ons aanbod zelf, met de beste Griekse producten. Trek gewoon binnen en voel je welkom.</span>
         </p>
       </div>
       <div class="gallery-grid">
@@ -913,7 +916,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="section-head">
       <div>
         <span class="eyebrow" data-i18n="reviews.eyebrow">Wat gasten zeggen</span>
-        <h2 style="margin-top:14px" data-i18n-html="reviews.h2.html">★ 5,0 op Google.<br><span style="color:var(--ink-3);font-size:0.6em">33 reviews — en groeiende.</span></h2>
+        <h2 style="margin-top:14px" data-i18n-html="reviews.h2.html">★ 5,0 op Google.<br><span style="color:var(--ink-3);font-size:0.6em">33 reviews, en groeiende.</span></h2>
       </div>
       <p class="lead" data-i18n="reviews.lead">Echte reacties van gasten die langs zijn geweest. Kom je ook proeven?</p>
     </div>
@@ -977,7 +980,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 
         <article class="review-card">
           <div class="review-stars" aria-label="5 sterren">★★★★★</div>
-          <p class="review-quote">Lekker doen! Heerlijke echte Illy koffie ook. Neem vooral iets lekkers bij de koffie — vers en vriendelijk.</p>
+          <p class="review-quote">Lekker doen! Heerlijke echte Illy koffie ook. Neem vooral iets lekkers bij de koffie, vers en vriendelijk.</p>
           <div class="review-foot">
             <span class="review-name">Astrid Kemp - van Rijn</span>
             <span class="review-meta">Google · 3 maanden geleden</span>
@@ -1057,7 +1060,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
         <h2 style="margin-top:14px" data-i18n="loc.h2">Plan je bezoek.</h2>
       </div>
       <p class="lead">
-        <span data-i18n="loc.lead">We zitten in de Arkelstraat — een steenworp van het centrum van Gorinchem. Parkeren in de buurt, terras voor de deur.</span>
+        <span data-i18n="loc.lead">We zitten in de Arkelstraat, een steenworp van het centrum van Gorinchem. Parkeren in de buurt, terras voor de deur.</span>
       </p>
     </div>
     <div class="location-grid">
@@ -1092,8 +1095,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <div class="contact-row">
             <span class="contact-label" data-i18n="loc.label.hours">Openingstijden</span>
             <span class="contact-val hours-mini">
-              Ma–Vr&nbsp;&nbsp;08:00 — 17:00<br>
-              Zaterdag&nbsp;&nbsp;08:00 — 17:00<br>
+              Ma–Vr&nbsp;&nbsp;08:00–17:00<br>
+              Zaterdag&nbsp;&nbsp;08:00–17:00<br>
               Zondag&nbsp;&nbsp;<span style="color:var(--ink-3)">Gesloten</span>
             </span>
           </div>
@@ -1244,15 +1247,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Hours grid — highlight today
+// Hours grid: highlight today
 (function() {
   const HOURS = [
-    { day: "Maandag",    time: "08:00 — 17:00" },
-    { day: "Dinsdag",    time: "08:00 — 17:00" },
-    { day: "Woensdag",   time: "08:00 — 17:00" },
-    { day: "Donderdag",  time: "08:00 — 17:00" },
-    { day: "Vrijdag",    time: "08:00 — 17:00" },
-    { day: "Zaterdag",   time: "08:00 — 17:00" },
+    { day: "Maandag",    time: "08:00–17:00" },
+    { day: "Dinsdag",    time: "08:00–17:00" },
+    { day: "Woensdag",   time: "08:00–17:00" },
+    { day: "Donderdag",  time: "08:00–17:00" },
+    { day: "Vrijdag",    time: "08:00–17:00" },
+    { day: "Zaterdag",   time: "08:00–17:00" },
     { day: "Zondag",     time: "Gesloten", closed: true },
   ];
   const todayIdx = new Date().getDay(); // 0=Sun
@@ -1329,15 +1332,20 @@ document.addEventListener('click', (e) => {
 </script>
 
 <script>
-// Mobile: expand/collapse review quotes
+// Mobile: expand/collapse review quotes (only for quotes that are actually clamped)
 if (window.innerWidth <= 720) {
   document.querySelectorAll('.review-quote').forEach(function(quote) {
+    if (quote.scrollHeight <= quote.clientHeight + 2) return;
     var btn = document.createElement('button');
     btn.className = 'review-expand-btn';
+    btn.setAttribute('data-i18n', 'review.more');
     btn.textContent = 'meer lezen';
     btn.addEventListener('click', function() {
       var expanded = quote.classList.toggle('expanded');
-      btn.textContent = expanded ? 'minder' : 'meer lezen';
+      btn.setAttribute('data-i18n', expanded ? 'review.less' : 'review.more');
+      var lang = document.documentElement.getAttribute('lang') || 'nl';
+      var L = { nl: ['meer lezen', 'minder'], en: ['read more', 'less'], de: ['mehr lesen', 'weniger'] }[lang] || ['meer lezen', 'minder'];
+      btn.textContent = expanded ? L[1] : L[0];
     });
     quote.after(btn);
   });
@@ -1348,12 +1356,11 @@ if (window.innerWidth <= 720) {
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding" aria-live="polite">
   <div class="cookie-banner-text">
     <strong data-i18n="cookie.title">Wij gebruiken cookies</strong><br />
-    We plaatsen functionele cookies (altijd actief) en optionele analytische cookies
-    om onze website te verbeteren. Kies hieronder uw voorkeur.
+    <span data-i18n="cookie.text">We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.</span>
     <a href="cookies.html" data-i18n="cookie.more">Meer informatie</a>
   </div>
   <div class="cookie-banner-btns">
-    <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Alles accepteren</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookie-accept" data-i18n="cookie.accept">Accepteren</button>
     <button class="cookie-btn cookie-btn-decline" id="cookie-decline" data-i18n="cookie.decline">Alleen noodzakelijk</button>
   </div>
 </div>
