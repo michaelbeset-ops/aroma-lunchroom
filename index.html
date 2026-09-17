@@ -7,7 +7,7 @@
 <link rel="icon" href="project/assets/favicon.ico" sizes="32x32" />
 <link rel="icon" href="project/assets/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="project/assets/apple-touch-icon.png" />
-<meta name="description" content="Zelfgemaakt Grieks ontbijt, verse lunch en specialty koffie in Gorinchem, elke dag vers bereid door Chrysa. Kom gewoon binnen. Open ma t/m za 08:00–17:00." />
+<meta name="description" content="Zelfgemaakt Grieks ontbijt, verse lunch en specialty koffie in Gorinchem, elke dag vers bereid door Chrysa. Kom gewoon binnen. Open ma t/m za 08:00 tot 17:00." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -707,7 +707,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="label" data-i18n="hero.label.open">Geopend</span>
-        <span class="val">Ma–Za · 08:00–17:00</span>
+        <span class="val">Ma t/m za · 08:00 tot 17:00</span>
       </div>
       <div class="hero-meta-item">
         <span class="label" data-i18n="hero.label.address">Adres</span>
@@ -1095,8 +1095,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
           <div class="contact-row">
             <span class="contact-label" data-i18n="loc.label.hours">Openingstijden</span>
             <span class="contact-val hours-mini">
-              Ma–Vr&nbsp;&nbsp;08:00–17:00<br>
-              Zaterdag&nbsp;&nbsp;08:00–17:00<br>
+              Ma t/m vr&nbsp;&nbsp;08:00 tot 17:00<br>
+              Zaterdag&nbsp;&nbsp;08:00 tot 17:00<br>
               Zondag&nbsp;&nbsp;<span style="color:var(--ink-3)">Gesloten</span>
             </span>
           </div>
@@ -1191,8 +1191,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
       <div class="footer-col">
         <h4>Open</h4>
         <ul>
-          <li>Ma–Vr · 08:00–17:00</li>
-          <li>Zaterdag · 08:00–17:00</li>
+          <li>Ma t/m vr · 08:00 tot 17:00</li>
+          <li>Zaterdag · 08:00 tot 17:00</li>
           <li>Zondag · gesloten</li>
         </ul>
       </div>
@@ -1250,12 +1250,12 @@ document.addEventListener('click', (e) => {
 // Hours grid: highlight today
 (function() {
   const HOURS = [
-    { day: "Maandag",    time: "08:00–17:00" },
-    { day: "Dinsdag",    time: "08:00–17:00" },
-    { day: "Woensdag",   time: "08:00–17:00" },
-    { day: "Donderdag",  time: "08:00–17:00" },
-    { day: "Vrijdag",    time: "08:00–17:00" },
-    { day: "Zaterdag",   time: "08:00–17:00" },
+    { day: "Maandag",    time: "08:00 tot 17:00" },
+    { day: "Dinsdag",    time: "08:00 tot 17:00" },
+    { day: "Woensdag",   time: "08:00 tot 17:00" },
+    { day: "Donderdag",  time: "08:00 tot 17:00" },
+    { day: "Vrijdag",    time: "08:00 tot 17:00" },
+    { day: "Zaterdag",   time: "08:00 tot 17:00" },
     { day: "Zondag",     time: "Gesloten", closed: true },
   ];
   const todayIdx = new Date().getDay(); // 0=Sun
