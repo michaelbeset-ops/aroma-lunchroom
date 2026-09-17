@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menu — Aroma Lunchroom</title>
 <meta name="robots" content="noindex" />
+<meta name="theme-color" content="#3f7d38" />
 <link rel="icon" href="project/assets/favicon.ico" sizes="32x32" />
 <link rel="icon" href="project/assets/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="project/assets/apple-touch-icon.png" />
@@ -64,21 +65,9 @@ body {
   position: relative;
   isolation: isolate;
 }
-.logo-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 48% 42%;
-  transform: scale(1.65);
-  transform-origin: 48% 42%;
-  display: block;
-}
-.logo-text-img {
-  height: 32px;
-  width: auto;
-  display: block;
-  filter: brightness(0);
-}
+.logo-circle { display: grid; place-items: center; color: #fff; }
+.logo-circle svg { width: 62%; height: 62%; display: block; }
+.logo-text { height: 30px; width: auto; aspect-ratio: 730 / 123; display: block; color: var(--ink); }
 
 /* ── Divider ornament ────────────────────────────────── */
 .ornament {
@@ -216,10 +205,8 @@ body {
 
 <!-- Logo -->
 <div class="logo-wrap">
-  <div class="logo-circle">
-    <img src="project/assets/logo-3.png" alt="Aroma" />
-  </div>
-  <img src="project/assets/aroma-text.png" alt="AROMA" class="logo-text-img" />
+  <div class="logo-circle"><svg viewBox="0 0 1009 782" aria-hidden="true" focusable="false"><use href="project/assets/brand.svg#mark"/></svg></div>
+  <svg class="logo-text" viewBox="0 0 730 123" role="img" aria-label="Aroma"><use href="project/assets/brand.svg#wordmark"/></svg>
 </div>
 
 <!-- Ornament -->
