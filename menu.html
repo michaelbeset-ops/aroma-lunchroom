@@ -139,11 +139,13 @@ h3 { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.2; }
 .menu-allergen { margin-top:52px; padding:18px 22px; background:var(--bg-2); border-radius:var(--r-md); border:1px solid var(--line); font-size:13px; color:var(--ink-2); line-height:1.6; }
 .menu-allergen p { margin:0 0 4px; }
 .menu-allergen p:last-child { margin-bottom:0; }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   /* Tabs als horizontaal scrollbare strip in plaats van drie regels */
   .menu-tabs { flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; scrollbar-width:none; margin:0 calc(-1 * var(--pad)) 32px; padding:0 var(--pad); }
   .menu-tabs::-webkit-scrollbar { display:none; }
   .menu-tab-btn { padding:11px 14px; font-size:11px; scroll-snap-align:start; flex-shrink:0; }
+}
+@media (max-width: 600px) {
   .menu-tab-content { grid-template-columns:1fr; gap:32px; }
 }
 

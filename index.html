@@ -240,7 +240,7 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 }
 .hours-item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 4px 0; }
 .hours-item .day { font-weight: 600; font-size: 14px; }
-.hours-item .time { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.hours-item .time { font-family: var(--mono); font-size: 13px; color: var(--ink-2); white-space: nowrap; }
 .hours-item.closed .time { color: var(--ink-3); }
 .hours-item.today { color: var(--brand); }
 .hours-item.today .day::before { content: "●"; color: var(--accent); margin-right: 6px; font-size: 10px; vertical-align: middle; }
@@ -441,6 +441,8 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .hours { grid-template-columns: 1fr; gap: 0; }
+  .review-card { flex: 0 0 calc((100% - 24px) / 2); }
 .location-grid { grid-template-columns: 1fr; }
   .location-map { min-height: 360px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -491,10 +493,11 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   }
   .menu-grid::-webkit-scrollbar { height: 4px; }
   .menu-grid::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
-  .menu-card { flex: 0 0 260px; scroll-snap-align: start; }
-  .menu-card-photo { width: 90px; }
-  .menu-card-body { padding: 10px 12px 12px; }
-  .menu-card-title { font-size: 15px; }
+  .menu-card { flex: 0 0 min(76vw, 300px); scroll-snap-align: start; flex-direction: column; }
+  .menu-card-photo { width: 100%; height: 180px; flex: 0 0 180px; align-self: auto; }
+  .menu-card-body { padding: 14px 16px 16px; }
+  .menu-card-title { font-size: 17px; }
+  .menu-card-desc { font-size: 13.5px; }
 
   /* GALLERY */
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -507,9 +510,9 @@ section { padding: clamp(80px, 11vw, 140px) 0; position: relative; }
   }
   .review-quote.expanded { display: block; overflow: visible; -webkit-line-clamp: unset; }
   .review-expand-btn {
-    background: none; border: none; padding: 0; margin-top: 6px;
-    font-size: 13px; color: var(--brand); cursor: pointer;
-    font-family: var(--sans); font-weight: 500; display: block;
+    background: none; border: none; padding: 0; margin-top: -6px;
+    font-size: 13px; color: var(--brand); cursor: pointer; text-align: left;
+    font-family: var(--sans); font-weight: 600; display: block; align-self: flex-start;
   }
   .review-quote::before { font-size: 36px; vertical-align: -14px; }
   .reviews-footer { margin-top: 20px; }
@@ -1329,15 +1332,20 @@ document.addEventListener('click', (e) => {
 </script>
 
 <script>
-// Mobile: expand/collapse review quotes
+// Mobile: expand/collapse review quotes (only for quotes that are actually clamped)
 if (window.innerWidth <= 720) {
   document.querySelectorAll('.review-quote').forEach(function(quote) {
+    if (quote.scrollHeight <= quote.clientHeight + 2) return;
     var btn = document.createElement('button');
     btn.className = 'review-expand-btn';
+    btn.setAttribute('data-i18n', 'review.more');
     btn.textContent = 'meer lezen';
     btn.addEventListener('click', function() {
       var expanded = quote.classList.toggle('expanded');
-      btn.textContent = expanded ? 'minder' : 'meer lezen';
+      btn.setAttribute('data-i18n', expanded ? 'review.less' : 'review.more');
+      var lang = document.documentElement.getAttribute('lang') || 'nl';
+      var L = { nl: ['meer lezen', 'minder'], en: ['read more', 'less'], de: ['mehr lesen', 'weniger'] }[lang] || ['meer lezen', 'minder'];
+      btn.textContent = expanded ? L[1] : L[0];
     });
     quote.after(btn);
   });
@@ -1348,12 +1356,11 @@ if (window.innerWidth <= 720) {
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding" aria-live="polite">
   <div class="cookie-banner-text">
     <strong data-i18n="cookie.title">Wij gebruiken cookies</strong><br />
-    We plaatsen functionele cookies (altijd actief) en optionele analytische cookies
-    om onze website te verbeteren. Kies hieronder uw voorkeur.
+    <span data-i18n="cookie.text">We plaatsen functionele cookies om de website goed te laten werken en Google Maps te tonen.</span>
     <a href="cookies.html" data-i18n="cookie.more">Meer informatie</a>
   </div>
   <div class="cookie-banner-btns">
-    <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Alles accepteren</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookie-accept" data-i18n="cookie.accept">Accepteren</button>
     <button class="cookie-btn cookie-btn-decline" id="cookie-decline" data-i18n="cookie.decline">Alleen noodzakelijk</button>
   </div>
 </div>
