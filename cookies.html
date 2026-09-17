@@ -7,6 +7,7 @@
 <link rel="icon" href="project/assets/favicon.ico" sizes="32x32" />
 <link rel="icon" href="project/assets/favicon-192.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="project/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#3f7d38" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,8 +25,11 @@ p,li { color:var(--ink-2); margin:0 0 12px; }
 ul { padding-left:20px; margin:0 0 16px; }
 li { margin-bottom:6px; }
 .topbar { background:var(--brand); color:var(--brand-ink); padding:14px var(--pad); display:flex; align-items:center; justify-content:space-between; }
-.topbar a { color:var(--brand-ink); text-decoration:none; font-size:14px; font-weight:600; }
-.topbar-logo { font-family:var(--serif); font-size:18px; }
+.topbar a { color:var(--brand-ink); text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap; }
+.topbar-logo { display:inline-flex; align-items:center; gap:10px; color:var(--brand-ink); line-height:0; }
+.topbar-mark { width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.14); display:grid; place-items:center; flex-shrink:0; }
+.topbar-mark svg { width:62%; height:62%; display:block; }
+.topbar-word { height:15px; width:auto; aspect-ratio:730 / 123; display:block; }
 .wrap { max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
 .hero { padding:56px 0 40px; }
 .eyebrow { font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:14px; }
@@ -43,8 +47,8 @@ footer a:hover { color:var(--ink); }
 </head>
 <body>
 <div class="topbar">
-  <a href="index.html">&#8592; Terug naar Aroma Lunchroom</a>
-  <span class="topbar-logo">Aroma</span>
+  <a href="index.html">&#8592; Terug naar de website</a>
+  <a href="index.html" class="topbar-logo" aria-label="Aroma Lunchroom - home"><span class="topbar-mark"><svg viewBox="0 0 1009 782" aria-hidden="true" focusable="false"><use href="project/assets/brand.svg#mark"/></svg></span><svg class="topbar-word" viewBox="0 0 730 123" aria-hidden="true" focusable="false"><use href="project/assets/brand.svg#wordmark"/></svg></a>
 </div>
 <div class="wrap">
   <div class="hero">
